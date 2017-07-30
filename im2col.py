@@ -1,8 +1,9 @@
 import numpy as np
 
 
-def get_im2col_indices(x_shape, f_H, f_W, pad, stride):
+def get_im2col_indices(x_shape, filter_shape, pad, stride):
     BS, in_D, in_H, in_W = x_shape
+    f_H, f_W = filter_shape
     pad_H, pad_W = pad
     stride_H, stride_W = stride
     assert (in_H + 2 * pad_H - f_H) % stride_H == 0
@@ -25,11 +26,12 @@ def get_im2col_indices(x_shape, f_H, f_W, pad, stride):
     return (c, i, j)
 
 
-def im2col(x, f_H, f_W, pad, stride):
+def im2col(x, filter_shape, pad, stride):
+    f_H, f_W = filter_shape
     pad_H, pad_W = pad
     x_padded = np.pad(x, ((0, 0), (0, 0), (pad_H, pad_H), (pad_W, pad_W)), mode='constant')
 
-    c, i, j = get_im2col_indices(x.shape, f_H, f_W, pad, stride)
+    c, i, j = get_im2col_indices(x.shape, filter_shape, pad, stride)
     x_cols = x_padded[:, c, i, j] #shape=(BS,f_H*f_W*in_D,out_W*out_H)
 
     in_D = x.shape[1]
@@ -38,14 +40,15 @@ def im2col(x, f_H, f_W, pad, stride):
     return x_cols
 
 
-def col2im(cols, x_shape, kernel_row_nber, kernel_col_nber, pad=1, stride=1):
-    BS, in_D, in_H, in_W = x_shape
-    BS, CH, RN, CN = x_shape
-    RN_padded = RN + 2 * pad
-    CN_padded = CN + 2 * pad
-    x_padded = np.zeros((BS, CH, RN_padded, CN_padded), dtype=cols.dtype)
-    c, i, j = get_im2col_indices(x_shape, kernel_row_nber, kernel_col_nber, pad, stride)
-    cols_reshaped = cols.reshape(CH * kernel_row_nber * kernel_col_nber, -1, BS)
+def col2im(cols, x_shape, filter_shape, pad, stride):
+    BS, in_D, in_H, in_H = x_shape
+    f_H, f_W = filter_shape
+    pad_H, pad_W = pad
+    RN_padded = in_H + 2 * pad_H
+    CN_padded = in_H + 2 * pad_W
+    x_padded = np.zeros((BS, in_D, RN_padded, CN_padded), dtype=cols.dtype)
+    c, i, j = get_im2col_indices(x_shape, filter_shape, pad, stride)
+    cols_reshaped = cols.reshape(in_D * f_H * f_W, -1, BS)
     cols_reshaped = cols_reshaped.transpose(2, 0, 1)
     np.add.at(x_padded, [None, c, i, j], cols_reshaped)
     if pad == 0:

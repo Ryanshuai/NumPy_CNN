@@ -4,9 +4,9 @@ from im2col import col2im
 
 class conv2d():
     def __init__(self, input_size, filter_size, strides, padding='valid'):
-        self.BS, self.in_H, self.in_W, self.in_D = input_size #[batch，高，宽，通道数]
-        self.f_H, self.f_W, _, self.out_D = filter_size #[高，宽，输入通道数，输出通道数]
-        self.stride_H, self.stride_W = strides #[高上步长，宽上步长]
+        self.BS, self.in_D, self.in_H, self.in_W = input_size #[batch,通道数,高,宽]
+        self.f_H, self.f_W, _, self.out_D = filter_size #[高,宽,输入通道数,输出通道数]
+        self.stride_H, self.stride_W = strides #[高上步长,宽上步长]
         self.pad_H ,self.pad_W = 0, 0
         if padding == 'same':
             self.pad_H = (self.f_H-1)/2
