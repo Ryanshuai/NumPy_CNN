@@ -1,10 +1,8 @@
 import numpy as np
+from im2col import im2col
 
+x = np.arange(75).reshape(1,3,5,5)
+x_sum = np.sum(x,axis=(0,2,3))
 
-
-w = np.arange(6).reshape(3,2)
-print(w)
-x = np.arange(6).reshape(2,3)
-print(x)
-out = np.matmul(w,x)
-print(out)
+print(x_sum.reshape(3,1).shape)
+print(x_sum[:,np.newaxis].shape)

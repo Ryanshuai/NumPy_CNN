@@ -20,11 +20,24 @@ class conv2d():
 
 
     def forward_propagate(self,X):
-        X_col = im2col(X, self.f_H, self.f_W, pad=[self.pad_H,self.pad_W], stride=[self.stride_H, self.stride_W])#shape=(f_H*f_W*in_D,out_H*out_W*BS)
-        out = np.matmul(self.W_col, X_col) + self.b #shape=(out_D,out_H*out_W*BS)
+        self.X_col = im2col(X, [self.f_H, self.f_W], pad=[self.pad_H,self.pad_W], stride=[self.stride_H, self.stride_W])#shape=(f_H*f_W*in_D,out_H*out_W*BS)
+        out = np.matmul(self.W_col, self.X_col) + self.b #shape=(out_D,out_H*out_W*BS)
         out = out.reshape(self.out_D,self.out_H,self.out_W,self.BS) #shape=(out_D,out_H*out_W*BS)->(out_D,out_H,out_W,BS)
-        out = out.transpose(3,0,1,2)
+        out = out.transpose(3,0,1,2)#shape=(BS,out_D,out_H,out_W)
         return out
 
-    def back_propagate(self):
+    def back_propagate(self,dout):
+        db = np.sum(dout,axis=(0,2,3))
+        db = db.reshape(self.out_D, 1)
+
+        dout_reshape = dout.transpose(1,2,3,0).reshape(self.out_D,-1)#shape=(BS,out_D,out_H,out_W)->(out_D,out_H*out_W*BS)
+        dW = np.matmul(dout_reshape,self.X_col.T)#shape=(out_D,f_H*f_W*in_D)
+        dW = dW.reshape(self.out_D,self.f_H,self.f_W,self.in_D)
+
+
+
+        return din,dW,db
+
+
+    def update(self):
         pass
