@@ -27,6 +27,7 @@ class conv2d():
         out = out.transpose(3,0,1,2)#shape=(BS,out_D,out_H,out_W)
         return out
 
+
     def back_propagate(self,dout):
         db = np.sum(dout,axis=(0,2,3))
         self.db = db.reshape(self.out_D, 1)#shape=(out_D,1)

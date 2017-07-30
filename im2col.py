@@ -48,9 +48,9 @@ def col2im(cols, x_shape, filter_shape, stride, pad):
     CN_padded = in_W + 2 * pad_W
     x_padded = np.zeros((BS, in_D, RN_padded, CN_padded), dtype=cols.dtype)
     c, i, j = get_im2col_indices(x_shape, filter_shape, pad, stride)
-    cols_reshaped = cols.reshape(in_D * f_H * f_W, -1, BS)
-    cols_reshaped = cols_reshaped.transpose(2, 0, 1)
-    np.add.at(x_padded, [None, c, i, j], cols_reshaped)
+    cols_reshaped = cols.reshape(f_H*f_W*in_D, -1, BS)#shape=(f_H*f_W*in_D,out_W*out_H,BS)
+    cols_reshaped = cols_reshaped.transpose(2, 0, 1)#shape=(BS,f_H*f_W*in_D,out_W*out_H)
+    np.add.at(x_padded, (slice(None), c, i, j), cols_reshaped)
     if pad_H != 0:
         x_padded = x_padded[:, :, pad_H:-pad_H, :]
     if pad_W != 0:
