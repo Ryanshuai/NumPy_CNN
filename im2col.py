@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def get_im2col_indices(x_shape, filter_shape, pad, stride):
+def get_im2col_indices(x_shape, filter_shape, stride, pad):
     BS, in_D, in_H, in_W = x_shape
     f_H, f_W = filter_shape
     pad_H, pad_W = pad
@@ -26,7 +26,7 @@ def get_im2col_indices(x_shape, filter_shape, pad, stride):
     return (c, i, j)
 
 
-def im2col(x, filter_shape, pad, stride):
+def im2col(x, filter_shape, stride, pad):
     f_H, f_W = filter_shape
     pad_H, pad_W = pad
     x_padded = np.pad(x, ((0, 0), (0, 0), (pad_H, pad_H), (pad_W, pad_W)), mode='constant')
@@ -40,7 +40,7 @@ def im2col(x, filter_shape, pad, stride):
     return x_cols
 
 
-def col2im(cols, x_shape, filter_shape, pad, stride):
+def col2im(cols, x_shape, filter_shape, stride, pad):
     BS, in_D, in_H, in_W = x_shape
     f_H, f_W = filter_shape
     pad_H, pad_W = pad
