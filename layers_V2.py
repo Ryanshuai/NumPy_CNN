@@ -49,3 +49,59 @@ class conv2d():
             pass
         elif type == 'Adam':
             pass
+
+
+class full_connect():
+    def __init__(self, input_len, output_len, BS):
+        self.input_len, self.output_len, self.BS = input_len, output_len, BS
+        self.W = [] #[输入长度，输出长度] 注意广播机制
+        self.b = np.zeros([1,output_len]) #[1，输出长度] 注意广播机制
+
+    def forward_propagate(self, input):
+        self.output = np.matmul(input, self.W)+self.b #shape=(BS,output_len)
+        return self.output
+
+    def back_propagate(self, dout):
+        output_sum_col = np.sum(self.output, axis=0).reshape(self.output_len, 1) #shape(output_len,1)
+        self.dW = output_sum_col*dout
+
+        self.db = self.BS*dout
+
+        din = np.matmul(dout, np.transpose(self.W))
+        return din
+
+    def optimize(self, lr, type='SGD'):
+        if type == 'SGD':
+            self.W -= lr * self.dW
+            self.b -= lr * self.db
+        elif type == 'RMSProp':
+            pass
+        elif type == 'Adam':
+            pass
+
+
+class relu():
+    def forward_propagate(self, input):
+        self.output = np.maximum(0, input)*1.0
+        return self.output
+    def back_propagate(self,dout):
+        relu_derivative = np.maximum(np.sign(self.output),0)
+        return relu_derivative*dout
+
+
+class sigmoid():
+    def forward_propagate(self,input):
+        self.output = 1.0 / (1.0 + np.exp(-input))
+        return self.output
+    def back_propagate(self,dout):
+        sigmoid_derivative = self.output*(1-self.output)
+        return sigmoid_derivative*dout
+
+
+class tanh():
+    def forward_propagate(self,input):
+        self.output = (np.exp(input) - np.exp(-input)) / (np.exp(input) + np.exp(-input))
+        return self.output
+    def back_propagate(self,dout):
+        sigmoid_derivative = 1-self.output**2
+        return sigmoid_derivative*dout

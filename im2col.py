@@ -14,14 +14,14 @@ def get_im2col_indices(x_shape, filter_shape, stride, pad):
     i_col = np.repeat(np.arange(f_H), f_W)
     i_col = np.tile(i_col, in_D).reshape(-1, 1)
     i_row = stride_H * np.repeat(np.arange(out_H), out_W)
-    i = i_col + i_row
+    i = i_col + i_row #shape=(in_D*f_H*f_W,out_H*out_W)
 
     j_col = np.tile(np.arange(f_W), f_H)
     j_col = np.tile(j_col, in_D).reshape(-1, 1)
     j_row = stride_W * np.tile(np.arange(out_W), out_H)
-    j = j_col + j_row
+    j = j_col + j_row #shape=(in_D*f_H*f_W,out_W*out_H)
 
-    c = np.repeat(np.arange(in_D), f_H * f_W).reshape(-1, 1)
+    c = np.repeat(np.arange(in_D), f_H * f_W).reshape(-1, 1) #shape=(in_D*f_H*f_W,1)
 
     return (c, i, j)
 
@@ -44,9 +44,9 @@ def col2im(cols, x_shape, filter_shape, stride, pad):
     BS, in_D, in_H, in_W = x_shape
     f_H, f_W = filter_shape
     pad_H, pad_W = pad
-    RN_padded = in_H + 2 * pad_H
-    CN_padded = in_W + 2 * pad_W
-    x_padded = np.zeros((BS, in_D, RN_padded, CN_padded), dtype=cols.dtype)
+    in_H_padded = in_H + 2 * pad_H
+    in_W_padded = in_W + 2 * pad_W
+    x_padded = np.zeros((BS, in_D, in_H_padded, in_W_padded), dtype=cols.dtype)
     c, i, j = get_im2col_indices(x_shape, filter_shape, pad, stride)
     cols_reshaped = cols.reshape(f_H*f_W*in_D, -1, BS)#shape=(f_H*f_W*in_D,out_W*out_H,BS)
     cols_reshaped = cols_reshaped.transpose(2, 0, 1)#shape=(BS,f_H*f_W*in_D,out_W*out_H)
