@@ -15,7 +15,7 @@ class conv2d():
         self.out_H = int((self.in_H - self.f_H + 2*self.pad_H)/self.stride_H + 1)
         self.out_W = int((self.in_W - self.f_W + 2*self.pad_W)/self.stride_W + 1)
 
-        Weight = np.sqrt(4. / (self.f_H * self.f_W * self.in_D + 1)) * np.random.randn(self.out_D,self.f_H,self.f_W,self.in_D)
+        Weight = np.sqrt(2. / (self.f_H * self.f_W * self.in_D)) * np.random.randn(self.out_D,self.f_H,self.f_W,self.in_D)
         self.W_col = Weight.reshape(self.out_D,-1) #shape=(out_D,f_H*f_W*in_D)
         self.b = 0.*np.ones((self.out_D, 1), dtype=np.float32)#shape=(out_D,1)
 
@@ -52,9 +52,9 @@ class conv2d():
 
 
 class full_connect():
-    def __init__(self, input_len, output_len, BS):
-        self.input_len, self.output_len, self.BS = input_len, output_len, BS
-        self.W = np.sqrt(4. / (self.input_len + self.output_len)) * np.random.randn(self.input_len, self.output_len) #shape=(输入长度，输出长度) 注意广播机制
+    def __init__(self, BS, input_len, output_len):
+        self.BS, self.input_len, self.output_len = BS, input_len, output_len
+        self.W = np.sqrt(2. / (self.input_len)) * np.random.randn(self.input_len, self.output_len) #shape=(输入长度，输出长度) 注意广播机制
         self.b = np.zeros([1,output_len]) #shape=(1，输出长度) 注意广播机制
 
     def forward_propagate(self, input):
@@ -89,10 +89,10 @@ class softmax_cross_entropy_error():
         self.one_hot_lables = one_hot_lables
         exp_input = np.exp(input)
         exp_input_reduce_sum = np.sum(exp_input, axis=1)[:, np.newaxis]
-        prob_input = exp_input / exp_input_reduce_sum
+        prob_input = exp_input / exp_input_reduce_sum #shape=(BS,output_len)
         clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
         error = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
-        return error
+        return error, prob_input #prob_input_shape=(BS,output_len)
 
     def back_propagate(self):
         din = self.input-self.one_hot_lables#shape=(BS,output_len)
@@ -107,7 +107,7 @@ class square_error():
         square = np.square(input - target) #shape=(BS,input_len)
         square_average = np.average(square, axis=0) #shape=(input_len)
         error = np.sum(square_average)#shape=(1)
-        return error
+        return error, input
 
     def back_propagate(self):
         din = 2*(self.input - self.target)  # shape=(BS,input_len)
