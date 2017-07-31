@@ -1,81 +1,160 @@
 import numpy as np
+from im2col import im2col
+from im2col import col2im
 
-class relu():
-    def forward(self, x):
-        return np.maximum(0, x)*1.0
-    def backward(self,theta):
-        ret = np.copy(theta)
-        ret[ret<=0] = 0.0
-        ret[ret>0] = 1.0
-        return ret
+class conv2d():
+    def __init__(self, input_shape, filter_shape, strides, padding='valid'):
+        self.input_shape = input_shape
+        self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
+        self.f_H, self.f_W, _, self.out_D = filter_shape #shape=(高,宽,输入通道数,输出通道数)
+        self.stride_H, self.stride_W = strides #shape=(高上步长,宽上步长)
+        self.pad_H ,self.pad_W = 0, 0
+        if padding == 'same':
+            self.pad_H = (self.f_H-1)/2
+            self.pad_W = (self.f_W-1)/2
+        self.out_H = int((self.in_H - self.f_H + 2*self.pad_H)/self.stride_H + 1)
+        self.out_W = int((self.in_W - self.f_W + 2*self.pad_W)/self.stride_W + 1)
 
-class sigmoid():
-    def forward(self,x):
-        if 1.0+np.exp(-x) == 0.0:
-            return 999999999.999999999
-        return 1.0/(1.0+np.exp(-x))
-    def backward(self,theta):
-        return self.forward(theta) * (1-self.forward(theta))
+        Weight = np.sqrt(4. / (self.f_H * self.f_W * self.in_D + 1)) * np.random.randn(self.out_D,self.f_H,self.f_W,self.in_D)
+        self.W_col = Weight.reshape(self.out_D,-1) #shape=(out_D,f_H*f_W*in_D)
+        self.b = 0.*np.ones((self.out_D, 1), dtype=np.float32)#shape=(out_D,1)
+
+
+    def forward_propagate(self,X):
+        self.X_col = im2col(X, [self.f_H, self.f_W], pad=[self.pad_H,self.pad_W], stride=[self.stride_H, self.stride_W])#shape=(f_H*f_W*in_D,out_H*out_W*BS)
+        out = np.matmul(self.W_col, self.X_col) + self.b #shape=(out_D,out_H*out_W*BS)
+        out = out.reshape(self.out_D,self.out_H,self.out_W,self.BS) #shape=(out_D,out_H*out_W*BS)->(out_D,out_H,out_W,BS)
+        out = out.transpose(3,0,1,2)#shape=(BS,out_D,out_H,out_W)
+        return out
+
+
+    def back_propagate(self,dout):
+        db = np.sum(dout,axis=(0,2,3))
+        self.db = db.reshape(self.out_D, 1)#shape=(out_D,1)
+
+        dout_reshaped = dout.transpose(1,2,3,0).reshape(self.out_D,-1)#shape=(BS,out_D,out_H,out_W)->(out_D,out_H*out_W*BS)
+        self.dW_col = np.matmul(dout_reshaped,self.X_col.T)#shape=(out_D,f_H*f_W*in_D)
+
+        din_col = np.matmul(self.W_col.T, dout_reshaped)#shape=(f_H*f_W*in_D,out_H*out_W*BS)
+        din = col2im(din_col, self.input_shape, [self.f_H, self.f_W],[self.stride_H, self.stride_W],[self.pad_H, self.pad_W])
+
+        return din
+
+
+    def optimize(self, lr, type='SGD'):
+        if type == 'SGD':
+            self.W_col -= lr*self.dW_col
+            self.b -= lr*self.db
+        elif type == 'RMSProp':
+            pass
+        elif type == 'Adam':
+            pass
+
 
 class full_connect():
-    def __init__(self, input, W, b, activate=None):
+    def __init__(self, input_len, output_len, BS):
+        self.input_len, self.output_len, self.BS = input_len, output_len, BS
+        self.W = np.sqrt(4. / (self.input_len + self.output_len)) * np.random.randn(self.input_len, self.output_len) #shape=(输入长度，输出长度) 注意广播机制
+        self.b = np.zeros([1,output_len]) #shape=(1，输出长度) 注意广播机制
+
+    def forward_propagate(self, input):
         self.input = input
-        self.W = W
-        self.b = b
-        self.active = None
-        if activate =='relu':
-            self.active = relu()
-        elif activate == 'sigmoid':
-            self.active = sigmoid()
-        self.forward()
+        output = np.matmul(input, self.W)+self.b #shape=(BS,output_len)
+        return output
 
-    def forward(self):
-        self.out = self.Z = np.matmul(self.input, self.W)+self.b
-        if self.active is not None:
-            out = self.active.forward(self.Z)
-        return self.out
+    def back_propagate(self, dout): #dout_shape=(BS,output_len)
+        dout_row = dout.reshape((self.BS, 1, self.output_len))
+        input_col = self.input.reshape((self.BS,self.input_len,1))
+        BS_dW = dout_row*input_col
+        self.dW = np.sum(BS_dW, axis=0)
 
-    def backward(self, toplayer_theta):
-        delta_Z = np.ones_like(self.Z)
+        self.db = np.sum(dout, axis=0)
 
-        if self.active is not None:
-            delta_Z = self.active.backward(self.Z)
-        if len(self.input.shape) > 1:
+        din = np.matmul(dout, np.transpose(self.W))
+        return din
 
-            self.theta =  np.matmul(toplayer_theta,np.transpose(self.W * np.mean(delta_Z, axis=0)) )
-            self.delta_W = np.mean(self.input, axis=0)[:, np.newaxis] * toplayer_theta
-        else:
-            self.theta = np.matmul(toplayer_theta, np.transpose(self.W)) * delta_Z
-            self.delta_W = self.input[:, np.newaxis] * toplayer_theta
-        self.delta_b = toplayer_theta
-
-    def update(self, lr):
-        self.W -= lr * self.delta_W
-        self.b -= lr * self.delta_b
-        self.delta_b = 0
-        self.delta_W = 0
-
-class softmax_cross_entropy_with_logits():
-    def __init__(self, logits, lables):
-        self.logits = logits
-        self.lables = lables
-        self.loss = self.forward()
-
-    def forward(self):
-        exp_x = np.exp(self.logits)
-        exp_sum = np.sum(exp_x,axis=-1)
-        exp_sum = exp_sum[:,np.newaxis]
-        prob = exp_x / exp_sum
-        #tf.clip_by_value(prob, 1e-10, 1)
-        loss = -np.mean(np.sum(self.lables * np.log(prob), axis=-1))
-        return loss
-
-    def backward(self):
-        if len(self.lables.shape) > 1:
-            self.theta = np.mean(self.logits - self.lables, axis=0)
-        else:
-            self.theta = np.mean(self.logits - self.lables)
+    def optimize(self, lr, type='SGD'):
+        if type == 'SGD':
+            self.W -= lr * self.dW
+            self.b -= lr * self.db
+        elif type == 'RMSProp':
+            pass
+        elif type == 'Adam':
+            pass
 
 
+class softmax_cross_entropy_error():
+    def forward_propagate(self, input, one_hot_lables):#input_shape=(BS,input_len) #lable_shape=(BS,output_len)
+        self.input = input
+        self.one_hot_lables = one_hot_lables
+        exp_input = np.exp(input)
+        exp_input_reduce_sum = np.sum(exp_input, axis=1)[:, np.newaxis]
+        prob_input = exp_input / exp_input_reduce_sum
+        clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
+        error = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
+        return error
+
+    def back_propagate(self):
+        din = self.input-self.one_hot_lables#shape=(BS,output_len)
+        return din
 
 
+class square_error():
+    def forward_propagate(self,input, target): #input_shape=(BS,input_len) #target_shape=(BS,output_len)
+        self.input = input
+        self.target = target
+
+        square = np.square(input - target) #shape=(BS,input_len)
+        square_average = np.average(square, axis=0) #shape=(input_len)
+        error = np.sum(square_average)#shape=(1)
+        return error
+
+    def back_propagate(self):
+        din = 2*(self.input - self.target)  # shape=(BS,input_len)
+        return din
+
+
+class relu():
+    def forward_propagate(self, input): #input_shape=(BS,input_len)
+        self.output = np.maximum(0, input)*1.0
+        return self.output
+    def back_propagate(self,dout):
+        relu_derivative = np.maximum(np.sign(self.output),0)
+        return relu_derivative*dout
+
+
+class sigmoid():
+    def forward_propagate(self,input): #input_shape=(BS,input_len)
+        self.output = 1.0 / (1.0 + np.exp(-input))
+        return self.output
+    def back_propagate(self,dout):
+        sigmoid_derivative = self.output*(1-self.output)
+        return sigmoid_derivative*dout
+
+
+class tanh():
+    def forward_propagate(self,input): #input_shape=(BS,input_len)
+        self.output = (np.exp(input) - np.exp(-input)) / (np.exp(input) + np.exp(-input))
+        return self.output
+    def back_propagate(self,dout):
+        sigmoid_derivative = 1-self.output**2
+        return sigmoid_derivative*dout
+
+
+class softmax():
+    def forward_propagate(self,input): #input_shape=(BS,input_len)
+        exp_input = np.exp(input)
+        exp_input_reduce_sum = np.sum(exp_input, axis=1)[:,np.newaxis]
+        return exp_input/exp_input_reduce_sum
+
+    def back_propagate(self,dout):
+        pass
+
+
+class flatter():
+    def flat(self,im):#shape=(BS,H,W)
+        self.BS, self.H, self.W = im.shape
+        return im.reshape((self.BS, self.H*self.W))
+
+    def de_flat(self,im_flatten):#shape=(BS,H*W)
+        return im_flatten.reshape((self.BS, self.H, self.W))
