@@ -9,6 +9,7 @@ net = network.NET(learning_rate=0.001, input_shape=[BS,1,28,28], BS=32)
 
 for i in range(1000000):
     batch_xs,batch_ys = mnist.train.next_batch(BS)
+    batch_xs = batch_xs.reshape((BS, 1, 28, 28))
     predict = net.forward_propagate(batch_xs, batch_ys)
     net.back_propagate()
     net.optimize()

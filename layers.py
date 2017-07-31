@@ -3,15 +3,15 @@ from im2col import im2col
 from im2col import col2im
 
 class conv2d():
-    def __init__(self, input_shape, filter_shape, strides, padding='valid'):
+    def __init__(self, input_shape, filter_shape, strides, padding='same'):
         self.input_shape = input_shape
         self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
         self.f_H, self.f_W, _, self.out_D = filter_shape #shape=(高,宽,输入通道数,输出通道数)
         self.stride_H, self.stride_W = strides #shape=(高上步长,宽上步长)
         self.pad_H ,self.pad_W = 0, 0
         if padding == 'same':
-            self.pad_H = (self.f_H-1)/2
-            self.pad_W = (self.f_W-1)/2
+            self.pad_H = int((self.f_H-1)/2)
+            self.pad_W = int((self.f_W-1)/2)
         self.out_H = int((self.in_H - self.f_H + 2*self.pad_H)/self.stride_H + 1)
         self.out_W = int((self.in_W - self.f_W + 2*self.pad_W)/self.stride_W + 1)
 
@@ -152,9 +152,9 @@ class softmax():
 
 
 class flatter():
-    def flat(self,im):#shape=(BS,H,W)
-        self.BS, self.H, self.W = im.shape
-        return im.reshape((self.BS, self.H*self.W))
+    def flat(self,im):#shape=(BS,D,H,W)
+        self.BS, self.D, self.H, self.W = im.shape
+        return im.reshape((self.BS, self.D*self.H*self.W))
 
-    def de_flat(self,im_flatten):#shape=(BS,H*W)
-        return im_flatten.reshape((self.BS, self.H, self.W))
+    def de_flat(self,im_flatten):#shape=(BS,D*H*W)
+        return im_flatten.reshape((self.BS, self.D, self.H, self.W))
