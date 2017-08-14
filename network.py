@@ -1,37 +1,88 @@
 import layers as ly
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
 
 
 class NET:
-    def __init__(self, learning_rate, input_shape, BS):
+    def __init__(self, learning_rate, input_shape, BS):#input_shape example: [BS,1,28,28]
         self.lr = learning_rate
-        self.conv1 = ly.conv2d(input_shape,[3,3,1,10],[1,1])
-        self.conv1_activate = ly.relu()
+
+        self.conv2d_1 = ly.conv2d(input_shape,[5,5,1,32],[1,1])
+        self.relu_1 = ly.relu()
+        self.max_pool_1 = ly.max_pooling(self.conv2d_1.output_shape, filter_shape=[2,2], strides=[2,2])
+
+        self.conv2d_2 = ly.conv2d(self.max_pool_1.output_shape,[5,5,32,64],[1,1])
+        self.relu_2 = ly.relu()
+        self.max_pool_2 = ly.max_pooling(self.conv2d_2.output_shape, filter_shape=[2,2], strides=[2,2])
+
         self.flatter = ly.flatter()
-        self.fc1 = ly.full_connect(BS=BS,input_len=7840,output_len=10)
+
+        self.full_connect_1 = ly.full_connect(BS=BS,input_len=7*7*64,output_len=1024)
+        self.relu_3 = ly.relu()
+        self.dropout_1 = ly.dropout(BS,1024)
+
+        self.full_connect_2 = ly.full_connect(BS,input_len=1024,output_len=10)
         self.loss_func = ly.softmax_cross_entropy_error()
 
 
-    def forward_propagate(self,input, one_hot_labels):
-        conv1_out = self.conv1.forward_propagate(input)
-        conv1_out_activate = self.conv1_activate.forward_propagate(conv1_out)
-        flatten_conv1_out = self.flatter.flat(conv1_out_activate)
-        fc1_out = self.fc1.forward_propagate(flatten_conv1_out)
-        loss, prob = self.loss_func.forward_propagate(fc1_out,one_hot_labels)
+    def forward_propagate(self,input, one_hot_labels, keep_prob):
+        z_conv1 = self.conv2d_1.forward_propagate(input)
+        a_conv1 = self.relu_1.forward_propagate(z_conv1)
+        p_conv1 = self.max_pool_1.forward_propagate(a_conv1)
+
+        z_conv2 = self.conv2d_2.forward_propagate(p_conv1)
+        a_conv2 = self.relu_2.forward_propagate(z_conv2)
+        p_conv2 = self.max_pool_2.forward_propagate(a_conv2)
+
+        flatten_p_conv2 = self.flatter.flat(p_conv2)
+
+        z_fc1 = self.full_connect_1.forward_propagate(flatten_p_conv2)
+        a_fc1 = self.relu_3.forward_propagate(z_fc1)
+        drop_fc1 = self.dropout_1.forward_propagate(a_fc1,keep_prob=keep_prob)
+
+        z_fc2 = self.full_connect_2.forward_propagate(drop_fc1)
+
+        loss, prob = self.loss_func.forward_propagate(z_fc2,one_hot_labels)
         #print(loss)
         return prob
 
 
     def back_propagate(self):
-        din_loss = self.loss_func.back_propagate()
-        din_fc1 = self.fc1.back_propagate(din_loss)
-        din_fc1_deflatten = self.flatter.de_flat(din_fc1)
-        din_fc1_deflatten_deactive = self.conv1_activate.back_propagate(din_fc1_deflatten)
-        din_conv1 = self.conv1.back_propagate(din_fc1_deflatten_deactive)
+        dout_z_fc2 = self.loss_func.back_propagate()
+        dout_drop_fc1 = self.full_connect_2.back_propagate(dout_z_fc2)
+
+        dout_a_fc1 = self.dropout_1.back_propagate(dout_drop_fc1)
+        dout_z_fc1 = self.relu_3.back_propagate(dout_a_fc1)
+        dout_p_conv2_flatten = self.full_connect_1.back_propagate(dout_z_fc1)
+
+        dout_p_conv2 = self.flatter.de_flat(dout_p_conv2_flatten)
+
+        dout_a_conv2 = self.max_pool_2.back_propagate(dout_p_conv2)
+        dout_z_conv2 = self.relu_2.back_propagate(dout_a_conv2)
+        dout_p_conv1 = self.conv2d_2.back_propagate(dout_z_conv2)
+
+        dout_a_conv1 = self.max_pool_1.back_propagate(dout_p_conv1)
+        dout_z_conv1 = self.relu_1.back_propagate(dout_a_conv1)
+        din_conv1 = self.conv2d_1.back_propagate(dout_z_conv1)
 
 
     def optimize(self):
-        self.conv1.optimize(self.lr)
-        self.fc1.optimize(self.lr)
+        self.conv2d_1.optimize(self.lr)
+        self.conv2d_2.optimize(self.lr)
+        self.full_connect_1.optimize(self.lr)
+        self.full_connect_2.optimize(self.lr)
 
 
+class MODEL:
+    def save(self,net_object,dir='net1.txt'):
+        txt_file = open(dir, 'wb')
+        pickle.dump(net_object, txt_file)
+        txt_file.close()
 
+    def restore(self,dir='net1.txt'):
+        txt_file = open(dir, 'rb')
+        net_object = pickle.load(txt_file)
+        txt_file.close()
+        return net_object

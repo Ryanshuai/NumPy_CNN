@@ -1,18 +1,11 @@
-import numpy as np
+from network import NET
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
 
-batch_y = np.array([[1,1,1],
-                 [2,2,2],
-                 [3,3,3],
-                 [4,4,4],
-                 [5,5,5]])
-print(batch_y)
-target = [1,1,1]
-
-print(batch_y-target)
-
-square = np.square(batch_y-target)
-print(square)
-square_average = np.average(square,axis=0)
-print(square_average)
-sum = np.sum(square_average)
-print(sum)
+mynet = NET(learning_rate=0.001, input_shape=[32,1,28,28], BS=32)
+mynet.conv1.pad_W = 999.645
+txt_file = open('dump.txt', 'wb')
+pickle.dump(mynet, txt_file)
+txt_file.close()

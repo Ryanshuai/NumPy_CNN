@@ -19,6 +19,7 @@ class conv2d():
         Weight = np.sqrt(2. / (self.f_H * self.f_W * self.in_D)) * np.random.randn(self.out_D,self.f_H,self.f_W,self.in_D)
         self.W_col = Weight.reshape(self.out_D,-1) #shape=(out_D,f_H*f_W*in_D)
         self.b = 0.*np.ones((self.out_D, 1), dtype=np.float32)#shape=(out_D,1)
+        self.output_shape = [self.BS, self.out_D, self.out_H, self.out_W]
 
 
     def forward_propagate(self,X):
@@ -70,6 +71,8 @@ class max_pooling():
 
         self.out_H = int((self.in_H + 2*self.pad_H - self.f_H) / self.stride_W + 1)
         self.out_W = int((self.in_W + 2*self.pad_W - self.f_W) / self.stride_W + 1)
+
+        self.output_shape = [self.BS, self.in_D, self.out_H, self.out_W]
 
 
     def forward_propagate(self,X):
@@ -130,11 +133,11 @@ class full_connect():
 
 
 class dropout():
-    def __init__(self, BS, input_len):
-        self.BS, self.len = BS, input_len
+    def __init__(self, BS, lenth):
+        self.BS, self.len = BS, lenth
 
     def forward_propagate(self, input, keep_prob): # input_shape=(BS,input_len)
-        self.multiplier = (1/self.prob)*np.random.binomial(1, keep_prob, self.len)#shape=(input_len)
+        self.multiplier = (1/keep_prob)*np.random.binomial(1, keep_prob, self.len)#shape=(input_len)
         output = self.multiplier*input
         return output
 
