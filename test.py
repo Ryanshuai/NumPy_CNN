@@ -1,26 +1,39 @@
+from layers import max_pooling
 import numpy as np
-from im2col import im2col
 
-BS = 5
-input_len = 3
-output_len = 2
+input_shape = [1,3,4,4]
+filter_shape = [2,2]
+strides = [2,2]
+maxp = max_pooling(input_shape,filter_shape,strides)
 
+X = np.array([[[[1., 2., 99., 4.],
+                [5., 2., 7., 8.],
+                [12., 11., 10., 9.],
+                [16., 15., 14., 13.]],
 
-input = np.array([[1,2,3],
-                  [1,1,1],
-                  [0,2,0],
-                  [5,5,0],
-                  [1,2,5]])
+      [[1., 2., 3., 4.],
+       [5., 6., 7., 8.],
+       [12., 11., 10., 9.],
+       [16., 99., 14., 13.]],
 
-dout = np.array([[10,20],
-                 [10,20],
-                 [10,20],
-                 [20,30],
-                 [20,30]])
+      [[1., 2., 3., 4.],
+       [5., 6., 7., 8.],
+       [12., 99., 10., 9.],
+       [16., 15., 14., 13.]]]])
 
-dout_row = dout.reshape((BS, 1, output_len))
-input_col = input.reshape((BS,input_len,1))
-BS_dW = dout_row*input_col
-print(BS_dW)
-dW = np.sum(BS_dW, axis=0)
-print(dW)
+out = maxp.forward_propagate(X)
+print(out)
+print('----------------------------------------')
+
+dout = np.array([[[[  1. , 2.],
+          [ 3.  ,4.]],
+
+          [[  5. ,  6.],
+           [ 7. , 8.]],
+
+          [[  9. ,  10.],
+           [ 11. , 12.]]]])
+
+din = maxp.back_propagate(dout)
+print(din)
+

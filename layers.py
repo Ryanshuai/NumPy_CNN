@@ -1,15 +1,16 @@
 import numpy as np
 from im2col import im2col
 from im2col import col2im
+import math
 
 class conv2d():
-    def __init__(self, input_shape, filter_shape, strides, padding='same'):
+    def __init__(self, input_shape, filter_shape, strides, padding='SAME'):
         self.input_shape = input_shape
         self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
         self.f_H, self.f_W, _, self.out_D = filter_shape #shape=(高,宽,输入通道数,输出通道数)
         self.stride_H, self.stride_W = strides #shape=(高上步长,宽上步长)
         self.pad_H ,self.pad_W = 0, 0
-        if padding == 'same':
+        if padding == 'SAME':
             self.pad_H = int((self.f_H-1)/2)
             self.pad_W = int((self.f_W-1)/2)
         self.out_H = int((self.in_H - self.f_H + 2*self.pad_H)/self.stride_H + 1)
@@ -51,6 +52,51 @@ class conv2d():
             pass
 
 
+class max_pooling():
+    def __init__(self,input_shape, filter_shape, strides, padding='SAME'):
+        self.input_shape = input_shape
+        self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
+        self.f_H, self.f_W = filter_shape  # shape=(高,宽)
+        self.stride_H, self.stride_W = strides  # shape=(高上步长,宽上步长)
+        self.pad_H, self.pad_W = 0, 0
+        if padding == 'SAME':
+            out_H = int(math.ceil(self.in_H / self.stride_H))
+            in_H_pad = out_H * self.stride_H
+            self.pad_H = (in_H_pad - self.stride_H + self.f_H - self.in_H)/2
+
+            out_W = int(math.ceil(self.in_W / self.stride_W))
+            in_W_pad = out_W * self.stride_W
+            self.pad_W = (in_W_pad - self.stride_W + self.f_W - self.in_W)/2
+
+        self.out_H = int((self.in_H + 2*self.pad_H - self.f_H) / self.stride_W + 1)
+        self.out_W = int((self.in_W + 2*self.pad_W - self.f_W) / self.stride_W + 1)
+
+
+    def forward_propagate(self,X):
+        X_col = im2col(X, [self.f_H, self.f_W], pad=[self.pad_H,self.pad_W], stride=[self.stride_H, self.stride_W])#shape=(in_D*f_H*f_W,out_H*out_W*BS)
+        X_col_channel = X_col.reshape(self.in_D, self.f_H*self.f_W, self.out_H*self.out_W*self.BS)#shape=(in_D,f_H*f_W,out_H*out_W*BS)
+        cord_1 = np.argmax(X_col_channel, axis=1).reshape(self.in_D*self.out_H*self.out_W*self.BS)#shape=(in_D*out_H*out_W*BS)
+        cord_0 = np.repeat(np.arange(self.in_D),self.out_H*self.out_W*self.BS)
+        cord_2 = np.tile(np.arange(self.out_H*self.out_W*self.BS),self.in_D)
+
+        self.iomat = np.zeros(shape=(self.in_D, self.f_H*self.f_W, self.out_H*self.out_W*self.BS))#shape=(in_D,f_H*f_W,out_H*out_W*BS)
+        self.iomat[cord_0,cord_1,cord_2] = 1
+
+        out = np.max(X_col_channel * self.iomat, axis=1)#shape=(in_D,out_H*out_W*BS)
+        out = out.reshape(self.in_D, self.out_H, self.out_W,self.BS)  # shape=(in_D,out_H*out_W*BS)->(in_D,out_H,out_W,BS)
+        out = out.transpose(3,0,1,2)#shape=(BS,out_D,out_H,out_W)
+        return out
+
+
+    def back_propagate(self,dout):
+        dout_reshaped = dout.transpose(1,2,3,0).reshape(self.in_D,1,self.out_H*self.out_W*self.BS)#shape=(BS,in_D,out_H,out_W)->(in_D,out_H*out_W*BS)
+
+        din_col = (self.iomat*dout_reshaped).reshape(self.in_D*self.f_H*self.f_W, self.out_H*self.out_W*self.BS)
+        din = col2im(din_col, self.input_shape, [self.f_H, self.f_W],[self.stride_H, self.stride_W],[self.pad_H, self.pad_W])
+
+        return din
+
+
 class full_connect():
     def __init__(self, BS, input_len, output_len):
         self.BS, self.input_len, self.output_len = BS, input_len, output_len
@@ -81,6 +127,20 @@ class full_connect():
             pass
         elif type == 'Adam':
             pass
+
+
+class dropout():
+    def __init__(self, BS, input_len):
+        self.BS, self.len = BS, input_len
+
+    def forward_propagate(self, input, keep_prob): # input_shape=(BS,input_len)
+        self.multiplier = (1/self.prob)*np.random.binomial(1, keep_prob, self.len)#shape=(input_len)
+        output = self.multiplier*input
+        return output
+
+    def back_propagate(self, dout):  # dout_shape=(BS,output_len)
+        din = dout*self.multiplier
+        return din
 
 
 class softmax_cross_entropy_error():

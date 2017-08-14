@@ -29,9 +29,6 @@ class NET:
         din_conv1 = self.conv1.back_propagate(din_fc1_deflatten_deactive)
 
 
-
-
-
     def optimize(self):
         self.conv1.optimize(self.lr)
         self.fc1.optimize(self.lr)
