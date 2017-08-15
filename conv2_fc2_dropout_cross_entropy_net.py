@@ -9,10 +9,10 @@ class NET:
     def __init__(self, learning_rate, input_shape, BS):#input_shape example: [BS,1,28,28]
         self.lr = learning_rate
 
-        self.conv2d_1 = ly.conv2d(input_shape, [5, 5, 1, 6], [2, 2], 'VALID')
+
+        self.conv2d_1 = ly.conv2d(input_shape, [5, 5, 1, 6], [1, 1], 'VALID')
         self.relu_1 = ly.relu()
 
-        # conv2 : 6*12*12 - > 10*5*5
         self.conv2d_2 = ly.conv2d([BS, 6, 12, 12], [3, 3, 6, 10], [2, 2], 'VALID')
         self.relu_2 = ly.relu()
 

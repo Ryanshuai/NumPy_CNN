@@ -9,11 +9,11 @@ class conv2d():
         self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
         self.f_H, self.f_W, _, self.out_D = filter_shape #shape=(高,宽,输入通道数,输出通道数)
         self.stride_H, self.stride_W = strides #shape=(高上步长,宽上步长)
-        self.pad_H ,self.pad_W = 0, 0
 
         if padding == 'VALID':
             self.out_H = int(math.ceil((self.in_H - self.f_H + 1) / self.stride_H))
             self.out_W = int(math.ceil((self.in_W - self.f_W + 1)/ self.stride_W))
+            self.pad_H, self.pad_W = 0, 0
 
         if padding == 'SAME':
             self.out_H = int(math.ceil(self.in_H / self.stride_H))
@@ -65,10 +65,10 @@ class max_pooling():
         self.BS, self.in_D, self.in_H, self.in_W = input_shape #shape=(batch,通道数,高,宽)
         self.f_H, self.f_W = filter_shape  # shape=(高,宽)
         self.stride_H, self.stride_W = strides  # shape=(高上步长,宽上步长)
-        self.pad_H, self.pad_W = 0, 0
         if padding == 'VALID':
             self.out_H = int(math.ceil((self.in_H - self.f_H + 1) / self.stride_H))
             self.out_W = int(math.ceil((self.in_W - self.f_W + 1)/ self.stride_W))
+            self.pad_H, self.pad_W = 0, 0
 
         if padding == 'SAME':
             self.out_H = int(math.ceil(self.in_H / self.stride_H))
