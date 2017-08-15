@@ -10,11 +10,17 @@ class conv2d():
         self.f_H, self.f_W, _, self.out_D = filter_shape #shape=(高,宽,输入通道数,输出通道数)
         self.stride_H, self.stride_W = strides #shape=(高上步长,宽上步长)
         self.pad_H ,self.pad_W = 0, 0
+
+        if padding == 'VALID':
+            self.out_H = int(math.ceil((self.in_H - self.f_H + 1) / self.stride_H))
+            self.out_W = int(math.ceil((self.in_W - self.f_W + 1)/ self.stride_W))
+
         if padding == 'SAME':
-            self.pad_H = int((self.f_H-1)/2)
-            self.pad_W = int((self.f_W-1)/2)
-        self.out_H = int((self.in_H - self.f_H + 2*self.pad_H)/self.stride_H + 1)
-        self.out_W = int((self.in_W - self.f_W + 2*self.pad_W)/self.stride_W + 1)
+            self.out_H = int(math.ceil(self.in_H / self.stride_H))
+            self.pad_H = ((self.out_H - 1) * self.stride_H + self.f_H - self.in_H)/2 #may be a float
+
+            self.out_W = int(math.ceil(self.in_W / self.stride_W))
+            self.pad_W = ((self.out_W - 1) * self.stride_W + self.f_W - self.in_W)/2 #may be a float
 
         Weight = np.sqrt(2. / (self.f_H * self.f_W * self.in_D)) * np.random.randn(self.out_D,self.f_H,self.f_W,self.in_D)
         self.W_col = Weight.reshape(self.out_D,-1) #shape=(out_D,f_H*f_W*in_D)
@@ -60,17 +66,16 @@ class max_pooling():
         self.f_H, self.f_W = filter_shape  # shape=(高,宽)
         self.stride_H, self.stride_W = strides  # shape=(高上步长,宽上步长)
         self.pad_H, self.pad_W = 0, 0
+        if padding == 'VALID':
+            self.out_H = int(math.ceil((self.in_H - self.f_H + 1) / self.stride_H))
+            self.out_W = int(math.ceil((self.in_W - self.f_W + 1)/ self.stride_W))
+
         if padding == 'SAME':
-            out_H = int(math.ceil(self.in_H / self.stride_H))
-            in_H_pad = out_H * self.stride_H
-            self.pad_H = (in_H_pad - self.stride_H + self.f_H - self.in_H)/2
+            self.out_H = int(math.ceil(self.in_H / self.stride_H))
+            self.pad_H = ((self.out_H - 1) * self.stride_H + self.f_H - self.in_H)/2 #may be a float
 
-            out_W = int(math.ceil(self.in_W / self.stride_W))
-            in_W_pad = out_W * self.stride_W
-            self.pad_W = (in_W_pad - self.stride_W + self.f_W - self.in_W)/2
-
-        self.out_H = int((self.in_H + 2*self.pad_H - self.f_H) / self.stride_W + 1)
-        self.out_W = int((self.in_W + 2*self.pad_W - self.f_W) / self.stride_W + 1)
+            self.out_W = int(math.ceil(self.in_W / self.stride_W))
+            self.pad_W = ((self.out_W - 1) * self.stride_W + self.f_W - self.in_W)/2 #may be a float
 
         self.output_shape = [self.BS, self.in_D, self.out_H, self.out_W]
 
@@ -101,8 +106,8 @@ class max_pooling():
 
 
 class full_connect():
-    def __init__(self, BS, input_len, output_len):
-        self.BS, self.input_len, self.output_len = BS, input_len, output_len
+    def __init__(self, input_len, output_len):
+        self.input_len, self.output_len = input_len, output_len
         self.W = np.sqrt(2. / (self.input_len)) * np.random.randn(self.input_len, self.output_len) #shape=(输入长度，输出长度) 注意广播机制
         self.b = np.zeros([1,output_len]) #shape=(1，输出长度) 注意广播机制
 
@@ -112,8 +117,8 @@ class full_connect():
         return output
 
     def back_propagate(self, dout): #dout_shape=(BS,output_len)
-        dout_row = dout.reshape((self.BS, 1, self.output_len))
-        input_col = self.input.reshape((self.BS,self.input_len,1))
+        dout_row = dout.reshape((-1, 1, self.output_len))
+        input_col = self.input.reshape((-1, self.input_len,1))
         BS_dW = dout_row*input_col
         self.dW = np.sum(BS_dW, axis=0)
 
@@ -133,8 +138,8 @@ class full_connect():
 
 
 class dropout():
-    def __init__(self, BS, lenth):
-        self.BS, self.len = BS, lenth
+    def __init__(self, lenth):
+        self.len = lenth
 
     def forward_propagate(self, input, keep_prob): # input_shape=(BS,input_len)
         self.multiplier = (1/keep_prob)*np.random.binomial(1, keep_prob, self.len)#shape=(input_len)

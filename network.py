@@ -19,11 +19,11 @@ class NET:
 
         self.flatter = ly.flatter()
 
-        self.full_connect_1 = ly.full_connect(BS=BS,input_len=7*7*64,output_len=1024)
+        self.full_connect_1 = ly.full_connect(input_len=7*7*64,output_len=1024)
         self.relu_3 = ly.relu()
-        self.dropout_1 = ly.dropout(BS,1024)
+        self.dropout_1 = ly.dropout(1024)
 
-        self.full_connect_2 = ly.full_connect(BS,input_len=1024,output_len=10)
+        self.full_connect_2 = ly.full_connect(input_len=1024,output_len=10)
         self.loss_func = ly.softmax_cross_entropy_error()
 
 
@@ -76,13 +76,15 @@ class NET:
 
 
 class MODEL:
-    def save(self,net_object,dir='net1.txt'):
-        txt_file = open(dir, 'wb')
+    def save(self, net_object, step, dir='model/'):
+        print('save model')
+        txt_file = open(dir+'_'+str(step)+'net1.txt', 'wb')
         pickle.dump(net_object, txt_file)
         txt_file.close()
 
-    def restore(self,dir='net1.txt'):
-        txt_file = open(dir, 'rb')
+    def restore(self, step, dir='model/'):
+        print('load model')
+        txt_file = open(dir+'_'+str(step)+'net1.txt', 'wb')
         net_object = pickle.load(txt_file)
         txt_file.close()
         return net_object

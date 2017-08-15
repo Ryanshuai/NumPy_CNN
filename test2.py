@@ -1,20 +1,15 @@
-from network import NET
-try:
-    import cPickle as pickle
-except ImportError:
-    import pickle
+import layers as ly
+import numpy as np
 
-with open('dump.txt', 'rb') as txt_file:
+dropout = ly.dropout(lenth=10)
 
-try:
-    txt_file = open('dump.txt', 'rb')
-    mynet = pickle.load(txt_file)
-except IOError:
-    print('sfsdfadfdsafa')
-finally:
+input = np.arange(70).reshape(7,10)
+print(input)
+
+aaa = dropout.forward_propagate(input,0.1)
+print(aaa)
 
 
-txt_file.close()
-print(mynet.conv1.pad_W)
-
+bbb = dropout.back_propagate(aaa)
+print(bbb)
 

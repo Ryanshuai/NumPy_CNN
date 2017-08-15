@@ -48,10 +48,8 @@ def col2im(cols, x_shape, filter_shape, stride, pad):
     stride_H, stride_W = stride
     pad_H, pad_W = pad
 
-    out_H = int(math.ceil(in_H / stride_H))
-    in_H_padded = out_H * stride_H
-    out_W = int(math.ceil(in_W / stride_W))
-    in_W_padded = out_W * stride_W
+    in_H_padded = int(in_H + 2 * pad_H)
+    in_W_padded = int(in_W + 2 * pad_W)
 
     x_padded = np.zeros((BS, in_D, in_H_padded, in_W_padded), dtype=cols.dtype)
     c, i, j = get_im2col_indices(x_shape, filter_shape, stride, pad)
@@ -59,7 +57,7 @@ def col2im(cols, x_shape, filter_shape, stride, pad):
     cols_reshaped = cols_reshaped.transpose(2, 0, 1)#shape=(BS,f_H*f_W*in_D,out_W*out_H)
     np.add.at(x_padded, (slice(None), c, i, j), cols_reshaped)
     if pad_H != 0:
-        x_padded = x_padded[:, :, pad_H:-pad_H, :]
+        x_padded = x_padded[:, :, int(pad_H):-int(math.ceil(pad_H)), :]
     if pad_W != 0:
-        x_padded = x_padded[:, :, :, pad_W:-pad_W]
+        x_padded = x_padded[:, :, :, int(pad_W):-int(math.ceil(pad_W))]
     return x_padded
