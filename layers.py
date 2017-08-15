@@ -160,7 +160,8 @@ class softmax_cross_entropy_error():
         prob_input = exp_input / exp_input_reduce_sum #shape=(BS,output_len)
         clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
         error = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
-        return error, prob_input #prob_input_shape=(BS,output_len)
+        #print('error:',error)
+        return prob_input #prob_input_shape=(BS,output_len)
 
     def back_propagate(self):
         din = self.input-self.one_hot_lables#shape=(BS,output_len)

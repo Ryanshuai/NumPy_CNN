@@ -71,13 +71,13 @@ class NET:
 class MODEL:
     def save(self,net_object, step, dir='model/'):
         print('save model')
-        txt_file = open(dir+'_'+str(step)+'net1.txt', 'wb')
+        txt_file = open(dir+str(step)+'_net1.txt', 'wb')
         pickle.dump(net_object, txt_file)
         txt_file.close()
 
     def restore(self, step, dir='model/'):
         print('load model')
-        txt_file = open(dir+'_'+str(step)+'net1.txt', 'wb')
+        txt_file = open(dir+str(int(step))+'_net1.txt', 'wb')
         net_object = pickle.load(txt_file)
         txt_file.close()
         return net_object

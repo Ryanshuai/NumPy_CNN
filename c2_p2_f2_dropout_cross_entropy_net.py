@@ -6,7 +6,7 @@ except ImportError:
 
 
 class NET:
-    def __init__(self, learning_rate, input_shape, BS):#input_shape example: [BS,1,28,28]
+    def __init__(self, learning_rate, input_shape):#input_shape example: [BS,1,28,28]
         self.lr = learning_rate
 
         # conv1:(BS,1,28,28)->(BS,6,28,28)->(BS,6,14,14)
@@ -49,8 +49,7 @@ class NET:
         drop_fc1 = self.dropout.forward_propagate(a_fc1,keep_prob)
 
         z_fc2 = self.full_connect_2.forward_propagate(drop_fc1)
-        loss, prob = self.loss_func.forward_propagate(z_fc2, one_hot_labels)
-        #print(loss)
+        prob = self.loss_func.forward_propagate(z_fc2, one_hot_labels)
         return prob
 
 
@@ -80,6 +79,14 @@ class NET:
         self.full_connect_2.optimize(self.lr)
 
 
+    def change_BS(self,BS):
+        self.conv2d_1.BS = BS
+        self.conv2d_2.BS = BS
+        self.pool_1.BS = BS
+        self.pool_2.BS = BS
+        self.flatter.BS = BS
+
+
 class MODEL:
     def save(self,net_object, step, dir='model/'):
         print('save model')
@@ -89,7 +96,7 @@ class MODEL:
 
     def restore(self, step, dir='model/'):
         print('load model')
-        txt_file = open(dir+str(step)+'_net1.txt', 'wb')
+        txt_file = open(dir+str(int(step))+'_net1.txt', 'wb')
         net_object = pickle.load(txt_file)
         txt_file.close()
         return net_object
