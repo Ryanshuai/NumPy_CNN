@@ -7,9 +7,16 @@ from test_net import TEST_SET
 
 BS = 32
 mnist = input_data.read_data_sets("./data", one_hot=True)
-net = NET(learning_rate=1e-3, input_shape=[BS,1,28,28])
-model = MODEL()
 test = TEST_SET()
+model = MODEL()
+
+load_model = True
+if load_model == True:
+    net = model.restore(190000)
+    net.lr = 0.00001
+else:
+    net = NET(learning_rate=1e-4, input_shape=[BS, 1, 28, 28])
+
 
 for train_step in range(int(1e+6)):
 
@@ -22,7 +29,7 @@ for train_step in range(int(1e+6)):
 
     correct =list(filter(lambda x:x==0,[a-b for a, b in zip(np.argmax(predict, axis=-1), np.argmax(batch_ys, axis=-1))]))
     accuracy = len(correct) / BS
-    print('train_step:', train_step,'train_set accuracy:', accuracy)
+    print('train_step:', train_step,'train_set accuracy:', accuracy, end='\t')
 
     if(train_step%1e3==0 and train_step>0):
         print('-------------test_set accuracy:', test.compute_accuracy(net))

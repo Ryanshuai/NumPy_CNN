@@ -159,8 +159,8 @@ class softmax_cross_entropy_error():
         exp_input_reduce_sum = np.sum(exp_input, axis=1)[:, np.newaxis]
         prob_input = exp_input / exp_input_reduce_sum #shape=(BS,output_len)
         clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
-        error = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
-        #print('error:',error)
+        loss = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
+        print(' loss:',loss)
         return prob_input #prob_input_shape=(BS,output_len)
 
     def back_propagate(self):

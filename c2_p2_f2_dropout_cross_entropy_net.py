@@ -95,8 +95,8 @@ class MODEL:
         txt_file.close()
 
     def restore(self, step, dir='model/'):
-        print('load model')
-        txt_file = open(dir+str(int(step))+'_net1.txt', 'wb')
+        print('load model:',dir+str(int(step))+'_net1.txt')
+        txt_file = open(dir+str(int(step))+'_net1.txt', 'rb')
         net_object = pickle.load(txt_file)
         txt_file.close()
         return net_object
