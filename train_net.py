@@ -12,7 +12,7 @@ model = MODEL()
 
 load_model = True
 if load_model == True:
-    net = model.restore(190000)
+    net = model.restore(20000)
     net.lr = 0.00001
 else:
     net = NET(learning_rate=1e-4, input_shape=[BS, 1, 28, 28])

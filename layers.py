@@ -153,18 +153,17 @@ class dropout():
 
 class softmax_cross_entropy_error():
     def forward_propagate(self, input, one_hot_lables):#input_shape=(BS,input_len) #lable_shape=(BS,output_len)
-        self.input = input
         self.one_hot_lables = one_hot_lables
         exp_input = np.exp(input)
         exp_input_reduce_sum = np.sum(exp_input, axis=1)[:, np.newaxis]
         prob_input = exp_input / exp_input_reduce_sum #shape=(BS,output_len)
-        clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
-        loss = -np.mean(np.sum(one_hot_lables * np.log(clipped_prob_input), axis=1))
+        self.clipped_prob_input = np.minimum(1,np.maximum(1e-10, prob_input))#防止出现错误值
+        loss = -np.mean(np.sum(one_hot_lables * np.log(self.clipped_prob_input), axis=1))
         print(' loss:',loss)
         return prob_input #prob_input_shape=(BS,output_len)
 
     def back_propagate(self):
-        din = self.input-self.one_hot_lables#shape=(BS,output_len)
+        din = self.clipped_prob_input-self.one_hot_lables#shape=(BS,output_len)
         return din
 
 
