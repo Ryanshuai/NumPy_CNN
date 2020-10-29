@@ -1,4 +1,4 @@
-## Conv
+## Normalization
 1. Explain different types of normalization.
 
 ## Explain Slides
