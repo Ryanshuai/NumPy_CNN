@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layers/Conv/CNN.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layers/Conv/Conv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layers/Conv/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layers/Conv/im2col.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/numpy_cnn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/numpy_cnn.iml" afterDir="false" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="add CNN explaining">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/im2col.py" beforeDir="false" afterPath="$PROJECT_DIR$/im2col.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,8 +198,24 @@
       <workItem from="1603900721504" duration="24000" />
       <workItem from="1603936383853" duration="1144000" />
       <workItem from="1603937544210" duration="3105000" />
-      <workItem from="1603950950800" duration="685000" />
+      <workItem from="1603950950800" duration="1089000" />
+      <workItem from="1603952058895" duration="136000" />
     </task>
+    <task id="LOCAL-00001" summary="add CNN explaining">
+      <created>1603951673280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603951673280</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add CNN explaining">
+      <created>1603951899910</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603951899910</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,14 +224,26 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add CNN explaining" />
+    <option name="LAST_COMMIT_MESSAGE" value="add CNN explaining" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1312" y="341" key="#Plugins" timestamp="1603937610466">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
+    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1603951899365">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1603951899365" />
     <state x="1221" y="345" key="SettingsEditor" timestamp="1603951001365">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603952061927">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1603952061927" />
   </component>
 </project>

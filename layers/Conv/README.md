@@ -5,7 +5,7 @@
 ## Explain Slides
 
 
-| Test Image  | 
+| Explain Slides  | 
 | ----        |
 | ![](CNN/Slide1.PNG) | 
 | ![](CNN/Slide2.PNG) | 
