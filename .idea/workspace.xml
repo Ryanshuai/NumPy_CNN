@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="add CNN explaining">
+      <change afterPath="$PROJECT_DIR$/layers/Normalization/Normalization.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layers/Normalization/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/layers/Conv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/layers/Normalization" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,6 +52,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github_project\numpy_cnn\layers\Normalization" />
       <recent name="D:\github_project\numpy_cnn\layers\Conv" />
     </key>
   </component>
@@ -200,6 +202,7 @@
       <workItem from="1603937544210" duration="3105000" />
       <workItem from="1603950950800" duration="1089000" />
       <workItem from="1603952058895" duration="136000" />
+      <workItem from="1603961602382" duration="103000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -220,9 +223,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add CNN explaining" />
