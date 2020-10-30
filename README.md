@@ -9,7 +9,7 @@ This is the NumPy implementation of CNN, including Conv FC Dropout and BN layer,
 5. Anyone wants to help me?
 
 ## Example of image descriptions
-| structure  |   image descriptions   |  Dir   |
+| structure  |   image descriptions   |  dir   |
 | ----        |  ----    |  ----    | 
 | CNN | ![](README/CNN_explain.PNG) | layers/Conv/README.md |
 
