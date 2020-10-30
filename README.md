@@ -1,4 +1,4 @@
-# CNN with Numpy
+# CNN with NumPy
 This is the NumPy implementation of CNN, including Conv FC Dropout and BN layer, etc.
 
 ## Reconstruct

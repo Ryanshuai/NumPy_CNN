@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +32,7 @@
   </component>
   <component name="JupyterTrust" id="f8908419-b87c-4b14-8694-55d6ced6b082" />
   <component name="ProjectId" id="1jRn09a07ePoVCP93BSjPWUHQWK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -205,6 +205,7 @@
       <workItem from="1603967130248" duration="1000" />
       <workItem from="1604036189102" duration="93000" />
       <workItem from="1604036295814" duration="1748000" />
+      <workItem from="1604038482250" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
