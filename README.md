@@ -8,5 +8,5 @@ This is the NumPy implementation of CNN, including Conv FC Dropout and BN layer,
 
 | structure  |   image descriptions   |  Dir   |
 | ----        |  ----    |  ----    | 
-| CNN | ![](README/CNN explain.PNG) | layers/Conv/README.md |
+| CNN | ![](README/CNN_explain.PNG) | layers/Conv/README.md |
 
