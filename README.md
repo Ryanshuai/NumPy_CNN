@@ -1,5 +1,12 @@
-# numpy_cnn
+# CNN with Numpy
+This is the NumPy implementation of CNN, including Conv FC Dropout and BN layer, etc.
 
-核心是leyers.py文件：这是各个层的实现。
+## Reconstruct
+1. I am now trying to reconstruct it to follow up with the new technology used in CNN.
+2. I want to add some detailed image descriptions to each structure of CNN.
 
-im2col.py文件：是卷积操作中的一个核心。
+
+| structure  |   image descriptions   |  Dir   |
+| ----        |  ----    |  ----    | 
+| CNN | ![](README/CNN explain.PNG) | layers/Conv/README.md |
+
