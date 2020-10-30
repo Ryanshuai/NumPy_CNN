@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README/CNN explain.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/README/CNN_explain.PNG" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +204,7 @@
       <workItem from="1603961602382" duration="941000" />
       <workItem from="1603967130248" duration="1000" />
       <workItem from="1604036189102" duration="93000" />
-      <workItem from="1604036295814" duration="744000" />
+      <workItem from="1604036295814" duration="1599000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -255,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604036973930</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update README.md">
+      <created>1604037049829</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604037049829</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,17 +279,17 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
-    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604036973259">
+    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604037049194">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604036973259" />
+    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604037049194" />
     <state x="1221" y="345" key="SettingsEditor" timestamp="1603951001365">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604036979483">
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604037052790">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604036979483" />
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604037052790" />
   </component>
 </project>
