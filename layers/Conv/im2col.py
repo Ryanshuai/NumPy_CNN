@@ -3,25 +3,25 @@ import math
 
 
 def get_im2col_indices(x_shape, filter_shape, stride, pad):
-    BS, in_D, in_H, in_W = x_shape
+    BS, in_C, in_H, in_W = x_shape
     f_H, f_W = filter_shape
-    pad_H, pad_W = pad
     stride_H, stride_W = stride
+    pad_H, pad_W = pad
 
     out_H = int((in_H + 2 * pad_H - f_H) / stride_W + 1)
     out_W = int((in_W + 2 * pad_W - f_W) / stride_W + 1)
 
     i_col = np.repeat(np.arange(f_H), f_W)
-    i_col = np.tile(i_col, in_D).reshape(-1, 1)
+    i_col = np.tile(i_col, in_C).reshape(-1, 1)
     i_row = stride_H * np.repeat(np.arange(out_H), out_W)
     i = i_col + i_row  # (in_D*f_H*f_W,out_H*out_W)
 
     j_col = np.tile(np.arange(f_W), f_H)
-    j_col = np.tile(j_col, in_D).reshape(-1, 1)
+    j_col = np.tile(j_col, in_C).reshape(-1, 1)
     j_row = stride_W * np.tile(np.arange(out_W), out_H)
     j = j_col + j_row  # (in_D*f_H*f_W,out_W*out_H)
 
-    c = np.repeat(np.arange(in_D), f_H * f_W).reshape(-1, 1)  # (in_D*f_H*f_W,1)
+    c = np.repeat(np.arange(in_C), f_H * f_W).reshape(-1, 1)  # (in_D*f_H*f_W,1)
 
     return (c, i, j)
 
@@ -63,3 +63,13 @@ def col2im(cols, x_shape, filter_shape, stride, pad):
     if pad_W != 0:
         x_padded = x_padded[:, :, :, int(pad_W):-int(math.ceil(pad_W))]
     return x_padded
+
+
+if __name__ == '__main__':
+    x_shape = 2, 3, 4, 5
+    filter_shape = 3, 3
+    stride = 1, 1
+    pad = 0, 0
+
+    c,i,j = get_im2col_indices(x_shape, filter_shape, stride, pad)
+    print()

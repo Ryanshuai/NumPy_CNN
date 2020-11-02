@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/im2col.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/im2col.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +56,8 @@
       <recent name="D:\github_project\numpy_cnn\layers\Conv" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.train_net">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.im2col">
+    <configuration name="im2col" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -64,12 +65,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layers/Conv" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/layers/Conv/im2col.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,19 +168,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.test2" />
       <item itemvalue="Python.test3" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.train_net" />
+      <item itemvalue="Python.im2col" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.im2col" />
         <item itemvalue="Python.train_net" />
         <item itemvalue="Python.test2" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test3" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +206,8 @@
       <workItem from="1603967130248" duration="1000" />
       <workItem from="1604036189102" duration="93000" />
       <workItem from="1604036295814" duration="1748000" />
-      <workItem from="1604038482250" duration="53000" />
+      <workItem from="1604038482250" duration="664000" />
+      <workItem from="1604302109429" duration="1265000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -277,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604038033974</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update README.md">
+      <created>1604038543186</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604038543186</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,17 +303,63 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
-    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604038033355">
+    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604038542409">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038033355" />
+    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038542409" />
+    <state width="1446" height="1272" key="GridCell.Tab.0.bottom" timestamp="1604303382074">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382074" />
+    <state width="1446" height="1272" key="GridCell.Tab.0.center" timestamp="1604303382074">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382074" />
+    <state width="1446" height="1272" key="GridCell.Tab.0.left" timestamp="1604303382074">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382074" />
+    <state width="1446" height="1272" key="GridCell.Tab.0.right" timestamp="1604303382074">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382074" />
+    <state width="1446" height="1272" key="GridCell.Tab.1.bottom" timestamp="1604303382075">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382075" />
+    <state width="1446" height="1272" key="GridCell.Tab.1.center" timestamp="1604303382075">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382075" />
+    <state width="1446" height="1272" key="GridCell.Tab.1.left" timestamp="1604303382075">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382074" />
+    <state width="1446" height="1272" key="GridCell.Tab.1.right" timestamp="1604303382075">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1446" height="1272" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604303382075" />
     <state x="1221" y="345" key="SettingsEditor" timestamp="1603951001365">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604038037154">
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604038545441">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038037154" />
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038545441" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/layers/Conv/im2col.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NumPy_CNN$im2col.coverage" NAME="im2col Coverage Results" MODIFIED="1604303014290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
   </component>
 </project>
