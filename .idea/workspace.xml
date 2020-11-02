@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/im2col.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/im2col.py" afterDir="false" />
-    </list>
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md add bias" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,6 +205,7 @@
       <workItem from="1604036295814" duration="1748000" />
       <workItem from="1604038482250" duration="664000" />
       <workItem from="1604302109429" duration="1265000" />
+      <workItem from="1604332842978" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -286,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604038543186</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update README.md add bias">
+      <created>1604332873645</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1604332873645</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,17 +301,18 @@
     <MESSAGE value="add CNN explaining" />
     <MESSAGE value="add Normalization explaining" />
     <MESSAGE value="update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
+    <MESSAGE value="update README.md add bias" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md add bias" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1312" y="341" key="#Plugins" timestamp="1603937610466">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
-    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604038542409">
+    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604332872889">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038542409" />
+    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604332872889" />
     <state width="1446" height="1272" key="GridCell.Tab.0.bottom" timestamp="1604303382074">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
@@ -343,10 +349,10 @@
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
     <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604038545441">
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604332876071">
       <screen x="0" y="0" width="3440" height="1400" />
     </state>
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604038545441" />
+    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604332876071" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
