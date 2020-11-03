@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md add bias" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="update README.md add bias">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/Conv.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,6 +209,7 @@
       <workItem from="1604038482250" duration="664000" />
       <workItem from="1604302109429" duration="1265000" />
       <workItem from="1604332842978" duration="44000" />
+      <workItem from="1604333198826" duration="176000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>

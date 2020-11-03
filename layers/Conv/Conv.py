@@ -40,11 +40,11 @@ class Conv2d():
 
     def back_propagate(self, dout):
         db = np.sum(dout, axis=(0, 2, 3))
-        self.db = db.reshape(self.out_C, 1)  # (out_D,1)
+        self.db = db.reshape(self.out_C, 1)  # (out_C,1)
         dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(self.out_C,
-                                                           -1)  # (BS,out_D,out_H,out_W)->(out_D,out_H*out_W*BS)
-        self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_D,f_H*f_W*in_D)
-        din_col = np.matmul(self.W_col.T, dout_reshaped)  # (f_H*f_W*in_D,out_H*out_W*BS)
+                                                           -1)  # (BS,out_C,out_H,out_W)->(out_C,out_H*out_W*BS)
+        self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_C,f_H*f_W*in_C)
+        din_col = np.matmul(self.W_col.T, dout_reshaped)  # (f_H*f_W*in_C,out_H*out_W*BS)
         din = col2im(din_col, self.input_shape, [self.f_H, self.f_W], [self.stride_H, self.stride_W],
                      [self.pad_H, self.pad_W])
         return din
@@ -60,3 +60,4 @@ class Conv2d():
 
 
 if __name__ == '__main__':
+    pass
