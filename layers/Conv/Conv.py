@@ -1,6 +1,6 @@
 import numpy as np
-from im2col import im2col
-from im2col import col2im
+from .ImageColumn import im2col
+from .ImageColumn import col2im
 import math
 
 
