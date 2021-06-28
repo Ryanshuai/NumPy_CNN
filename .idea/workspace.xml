@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="new">
-      <change afterPath="$PROJECT_DIR$/layers/Conv/ImageColumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/import_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/conv/ImageColumn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/numpy_cnn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/numpy_cnn.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/Conv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/im2col.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +44,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/layers/Normalization" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/NumPytorch/nn/conv" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github_project\NumPy_CNN\NumPytorch\nn\conv" />
       <recent name="D:\github_project\numpy_cnn\layers\Normalization" />
       <recent name="D:\github_project\numpy_cnn\layers\Conv" />
     </key>
@@ -215,6 +221,7 @@
       <workItem from="1604333198826" duration="176000" />
       <workItem from="1604368295974" duration="511000" />
       <workItem from="1604371067443" duration="20713000" />
+      <workItem from="1624863356412" duration="762000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -305,6 +312,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add CNN explaining" />
