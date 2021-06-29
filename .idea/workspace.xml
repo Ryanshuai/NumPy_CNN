@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="new">
-      <change afterPath="$PROJECT_DIR$/import_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/conv/ImageColumn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/numpy_cnn.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/numpy_cnn.iml" afterDir="false" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="initial for numPytorch">
+      <change afterPath="$PROJECT_DIR$/backward_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/Tensor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/Tensor/tensor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/autograd/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/autograd/addBackward.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/autograd/meanBackward.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/autograd/mulBackward.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/layer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/NumPytorch/nn/conv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/numPytorch/Tensor" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,12 +63,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\Tensor" />
       <recent name="D:\github_project\NumPy_CNN\NumPytorch\nn\conv" />
       <recent name="D:\github_project\numpy_cnn\layers\Normalization" />
       <recent name="D:\github_project\numpy_cnn\layers\Conv" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ImageColumn">
+  <component name="RunManager" selected="Python.tensor">
     <configuration name="ImageColumn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="tensor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -118,12 +122,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numPytorch/Tensor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numPytorch/Tensor/tensor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,18 +182,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.test2" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.train_net" />
       <item itemvalue="Python.merge_sort" />
       <item itemvalue="Python.ImageColumn" />
+      <item itemvalue="Python.tensor" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.tensor" />
         <item itemvalue="Python.ImageColumn" />
         <item itemvalue="Python.merge_sort" />
         <item itemvalue="Python.train_net" />
         <item itemvalue="Python.test2" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +225,9 @@
       <workItem from="1604333198826" duration="176000" />
       <workItem from="1604368295974" duration="511000" />
       <workItem from="1604371067443" duration="20713000" />
-      <workItem from="1624863356412" duration="762000" />
+      <workItem from="1624863356412" duration="1159000" />
+      <workItem from="1624865710024" duration="2000" />
+      <workItem from="1624943209935" duration="18030000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -307,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604332873645</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="initial for numPytorch">
+      <created>1624864155537</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624864155537</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,75 +336,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add CNN explaining" />
     <MESSAGE value="add Normalization explaining" />
     <MESSAGE value="update README.md" />
     <MESSAGE value="update README.md add bias" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md add bias" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1312" y="341" key="#Plugins" timestamp="1603937610466">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
-    <state x="1475" y="401" key="#xdebugger.evaluate" timestamp="1604388708349">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1475" y="401" key="#xdebugger.evaluate/0.0.3440.1400@0.0.3440.1400" timestamp="1604388708349" />
-    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604391856787">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604391856787" />
-    <state width="1484" height="466" key="DebuggerActiveHint" timestamp="1604387671540">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1484" height="466" key="DebuggerActiveHint/0.0.3440.1400@0.0.3440.1400" timestamp="1604387671540" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.bottom" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.center" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.left" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.right" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.bottom" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.center" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.left" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.right" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state x="1221" y="345" key="SettingsEditor" timestamp="1603951001365">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604332876071">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604332876071" />
-    <state x="1563" y="485" key="refactoring.ChangeSignatureDialog" timestamp="1604388229415">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1563" y="485" key="refactoring.ChangeSignatureDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1604388229415" />
+    <MESSAGE value="initial for numPytorch" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial for numPytorch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -405,7 +358,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NumPy_CNN$tensor.coverage" NAME="tensor Coverage Results" MODIFIED="1624965277580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/numPytorch/Tensor" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$im2col.coverage" NAME="im2col Coverage Results" MODIFIED="1604391704515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$merge_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1604371920126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$ImageColumn.coverage" NAME="ImageColumn Coverage Results" MODIFIED="1624953422800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
   </component>
 </project>

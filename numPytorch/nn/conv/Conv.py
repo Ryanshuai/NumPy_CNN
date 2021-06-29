@@ -1,10 +1,12 @@
 import numpy as np
+from ..layer import Layer
 from .ImageColumn import ImageColumn
 import math
 
 
-class Conv2d():
+class Conv2d(Layer):
     def __init__(self, input_shape, filter_shape, strides, padding='SAME'):
+        super().__init__()
         self.input_shape = input_shape
         self.BS, self.in_C, self.in_H, self.in_W = input_shape
         self.f_H, self.f_W, in_C_, self.out_C = filter_shape
@@ -30,19 +32,22 @@ class Conv2d():
         self.b = 0. * np.ones((self.out_C, 1), dtype=np.float32)  # (out_C,1)
         self.output_shape = [self.BS, self.out_C, self.out_H, self.out_W]
 
-    def forward_propagate(self, X):
+    def __call__(self, X):
+        return self.forward(X)
+
+    def forward(self, X):
         self.X_col = self.image_column.im2col(X)  # (f_H*f_W*in_C,out_H*out_W*BS)
         out = np.matmul(self.W_col, self.X_col) + self.b  # (out_C,out_H*out_W*BS)
         out = out.reshape(self.out_C, self.out_H, self.out_W, self.BS)  # (out_C,out_H*out_W*BS)->(out_C,out_H,out_W,BS)
         out = out.transpose(3, 0, 1, 2)  # (BS,out_C,out_H,out_W)
         return out
 
-    def back_propagate(self, dout):
+    def backward(self, dout):
         db = np.sum(dout, axis=(0, 2, 3))
-        self.db = db.reshape(self.out_C, 1)  # (out_C,1)
+        db = db.reshape(self.out_C, 1)  # (out_C,1)
         dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(self.out_C,
                                                            -1)  # (BS,out_C,out_H,out_W)->(out_C,out_H*out_W*BS)
-        self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_C,f_H*f_W*in_C)
+        dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_C,f_H*f_W*in_C)
         din_col = np.matmul(self.W_col.T, dout_reshaped)  # (f_H*f_W*in_C,out_H*out_W*BS)
         din = self.image_column.col2im(din_col)
         return din
