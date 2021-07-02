@@ -6,6 +6,8 @@ class Tensor:
     def __init__(self, data, requires_grad=False):
         if not isinstance(data, np.ndarray):
             data = np.array(data)
+        if isinstance(data, Tensor):
+            data = data.data
         self.data = data
         self.shape = self.data.shape
         self.requires_grad = requires_grad
@@ -28,6 +30,29 @@ class Tensor:
             self.grad += gradient
             if self.grad_fn:
                 self.grad_fn(gradient)
+
+    def flat(self):
+        data_shape = self.data.shape
+        new_tensor = Tensor(self.data.reshape((data_shape[0], -1)), self.requires_grad)
+        new_tensor.grad = self.grad.reshape((data_shape[0], -1))
+
+        def new_grad_fn(gradient):
+            gradient = gradient.reshape(data_shape)
+            self.grad_fn(gradient)
+
+        new_tensor.grad_fn = new_grad_fn
+        return new_tensor
+
+    def __getitem__(self, *args):
+        new_tensor = Tensor(self.data[args], self.requires_grad)
+        new_tensor.grad = self.grad[args]
+
+        def new_grad_fn(gradient):
+            gradient = gradient[args]
+            self.grad_fn(gradient)
+
+        new_tensor.grad_fn = new_grad_fn
+        return new_tensor
 
     def __add__(self, other):
         other = self.preprocess_other(other)

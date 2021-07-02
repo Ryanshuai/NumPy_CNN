@@ -9,6 +9,7 @@ from torch.optim.lr_scheduler import StepLR
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
+        nn.Conv2d
         self.fc1 = nn.Linear(784, 128)
         self.fc2 = nn.Linear(128, 10)
 

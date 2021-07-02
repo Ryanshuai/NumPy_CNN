@@ -1,9 +1,9 @@
 import numpy as np
-from .layer import Layer
+from .module import Module
 from ..autograd import NNCrossEntropyLossBackward
 
 
-class CrossEntropyLoss(Layer):
+class CrossEntropyLoss(Module):
     # https://pytorch.org/docs/master/generated/torch.nn.CrossEntropyLoss.html?highlight=crossentropyloss#torch.nn.CrossEntropyLoss
     def __init__(self, weight=None, reduction='mean'):
         super().__init__()

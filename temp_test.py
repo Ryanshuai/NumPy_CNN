@@ -5,7 +5,10 @@ res = mat[np.newaxis, np.array([0, 1])]
 print(res)
 
 
-np.log
+import torch
+
+torch.Tensor
+
 # x = np.arange(32) + 5
 # print(x)
 # print(x[np.array([3, 3, 1, 8])])

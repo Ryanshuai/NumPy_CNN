@@ -6,6 +6,8 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
 
+nn.Conv2d
+
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -83,12 +85,14 @@ def main():
     optimizer = optim.Adadelta(model.parameters(), lr=0.01)
 
     scheduler = StepLR(optimizer, step_size=1, gamma=0.7)
-    for epoch in range(1, 25 + 1):
-        train(model, device, train_loader, optimizer, epoch)
-        test(model, device, test_loader)
-        scheduler.step()
+    # for epoch in range(1, 25 + 1):
+    #     train(model, device, train_loader, optimizer, epoch)
+    #     test(model, device, test_loader)
+    #     scheduler.step()
 
-    torch.save(model.state_dict(), "mnist_cnn.pt")
+    # torch.save(model.state_dict(), "mnist_cnn.pt")
+    aaa = list(model.named_modules())
+    print()
 
 
 if __name__ == '__main__':

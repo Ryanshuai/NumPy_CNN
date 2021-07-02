@@ -1,12 +1,11 @@
 import numpy as np
-from .layer import Layer
+from .module import Module
 from ..autograd import NNReluBackward, NNSigmoidBackward, NNTanhBackward  # , NNSoftmaxBackward
 
 
-class Relu(Layer):
+class Relu(Module):
     def __init__(self):
         super().__init__()
-        self.parameters = []
 
     def forward(self, input):
         self.input = input
@@ -15,7 +14,7 @@ class Relu(Layer):
         return self.output
 
 
-class Sigmoid(Layer):
+class Sigmoid(Module):
     def forward(self, input):
         self.input = input
         self.output = 1.0 / (1.0 + np.exp(-input))
@@ -23,7 +22,7 @@ class Sigmoid(Layer):
         return self.output
 
 
-class Tanh():
+class Tanh(Module):
     def forward(self, input):  # input_shape=(BS,input_len)
         self.input = input
         self.output = (np.exp(input) - np.exp(-input)) / (np.exp(input) + np.exp(-input))

@@ -1,9 +1,9 @@
 import numpy as np
-from .layer import Layer
+from .module import Module
 from ..autograd import NNFlatterBackward
 
 
-class Flatter(Layer):
+class Flatter(Module):
     def __init__(self, ):
         super().__init__()
 

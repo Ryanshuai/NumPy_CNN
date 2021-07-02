@@ -1,9 +1,9 @@
 import numpy as np
-from .layer import Layer
+from .module import Module
 from ..autograd import NNCrossEntropyLossBackward
 
 
-class NLLLoss(Layer):
+class NLLLoss(Module):
     # refer to https://pytorch.org/docs/master/generated/torch.nn.functional.nll_loss.html?highlight=nll_loss#torch.nn.functional.nll_loss
     def __init__(self, weight=None, reduction='mean'):
         super().__init__()

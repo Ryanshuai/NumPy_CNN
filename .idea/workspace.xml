@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/numPytorch/autograd/backward.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd for basic operators">
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/parameter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/relu.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/flatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/flatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/linear.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/backward_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/backward_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/pytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/pytorch_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +80,7 @@
       <recent name="D:\github_project\NumPy_CNN\numPytorch\autograd" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.temp_test">
+  <component name="RunManager" selected="Python.pytorch_mnist (1)">
     <configuration name="backward_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,6 +95,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\test_network\backward_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytorch_mnist (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="numpy_cnn" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_network" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_network/pytorch_mnist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,42 +191,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tensor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="numpy_cnn" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numPytorch/Tensor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numPytorch/Tensor/tensor.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.tensor" />
       <item itemvalue="Python.backward_test" />
       <item itemvalue="Python.tensor (1)" />
       <item itemvalue="Python.pytorch_mnist" />
       <item itemvalue="Python.temp_test" />
+      <item itemvalue="Python.pytorch_mnist (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.pytorch_mnist (1)" />
         <item itemvalue="Python.temp_test" />
         <item itemvalue="Python.pytorch_mnist" />
         <item itemvalue="Python.backward_test" />
         <item itemvalue="Python.tensor (1)" />
-        <item itemvalue="Python.tensor" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +244,8 @@
       <workItem from="1625024981847" duration="12000" />
       <workItem from="1625167261158" duration="5942000" />
       <workItem from="1625194760166" duration="16228000" />
-      <workItem from="1625213507624" duration="2542000" />
+      <workItem from="1625213507624" duration="14132000" />
+      <workItem from="1625246988481" duration="3695000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -390,6 +396,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../Anaconda/Lib/site-packages/torch/nn/modules/module.py</url>
+          <line>1146</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -401,7 +414,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NumPy_CNN$tensor.coverage" NAME="tensor Coverage Results" MODIFIED="1624971047885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/numPytorch/Tensor" />
-    <SUITE FILE_PATH="coverage/NumPy_CNN$temp_test.coverage" NAME="temp_test Coverage Results" MODIFIED="1625207483958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$temp_test.coverage" NAME="temp_test Coverage Results" MODIFIED="1625220707031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$pytorch_mnist__1_.coverage" NAME="pytorch_mnist (1) Coverage Results" MODIFIED="1625247906483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_network" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$im2col.coverage" NAME="im2col Coverage Results" MODIFIED="1604391704515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$pytorch_mnist.coverage" NAME="pytorch_mnist Coverage Results" MODIFIED="1625198727575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$merge_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1604371920126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
