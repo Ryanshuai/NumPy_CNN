@@ -1,5 +1,6 @@
-# CNN with NumPy
-This is the NumPy implementation of CNN, including Conv FC Dropout and BN layer, etc.
+# NumPytorch
+This is a deep learning framework based on NumPy.\
+The API is Pytorch-like.
 
 ## Reconstruct
 1. The project has been tested on MNIST with almost the same accuracy as Tensorflow did, but three years ago.
