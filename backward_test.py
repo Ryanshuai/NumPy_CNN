@@ -1,5 +1,10 @@
 import torch
 from numPytorch.tensor import Tensor
+import torch.nn as nn
+
+nn.NLLLoss
+
+
 
 if __name__ == '__main__':
     print('--------------------------------------------')

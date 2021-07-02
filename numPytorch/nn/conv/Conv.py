@@ -32,15 +32,12 @@ class Conv2d(Layer):
         self.b = 0. * np.ones((self.out_C, 1), dtype=np.float32)  # (out_C,1)
         self.output_shape = [self.BS, self.out_C, self.out_H, self.out_W]
 
-    def __call__(self, X):
-        return self.forward(X)
-
     def forward(self, X):
         self.X_col = self.image_column.im2col(X)  # (f_H*f_W*in_C,out_H*out_W*BS)
         out = np.matmul(self.W_col, self.X_col) + self.b  # (out_C,out_H*out_W*BS)
         out = out.reshape(self.out_C, self.out_H, self.out_W, self.BS)  # (out_C,out_H*out_W*BS)->(out_C,out_H,out_W,BS)
-        out = out.transpose(3, 0, 1, 2)  # (BS,out_C,out_H,out_W)
-        return out
+        self.out = out.transpose(3, 0, 1, 2)  # (BS,out_C,out_H,out_W)
+        return self.out
 
     def backward(self, dout):
         db = np.sum(dout, axis=(0, 2, 3))

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd prototype (support add)">
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd for basic operators">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backward_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/backward_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/Tensor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/tensor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/Tensor/tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/addBackward.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/meanBackward.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/mulBackward.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/Conv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/basic_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/basic_autograd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/loss_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/loss_autograd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/conv/Conv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/linear.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +70,9 @@
       <recent name="D:\github_project\NumPy_CNN\NumPytorch\nn\conv" />
       <recent name="D:\github_project\numpy_cnn\layers\Normalization" />
       <recent name="D:\github_project\numpy_cnn\layers\Conv" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\autograd" />
     </key>
   </component>
   <component name="RunManager" selected="Python.backward_test">
@@ -229,7 +234,11 @@
       <workItem from="1624863356412" duration="1159000" />
       <workItem from="1624865710024" duration="2000" />
       <workItem from="1624943209935" duration="19698000" />
-      <workItem from="1624968989994" duration="11388000" />
+      <workItem from="1624968989994" duration="11632000" />
+      <workItem from="1624986615440" duration="2764000" />
+      <workItem from="1625024981847" duration="12000" />
+      <workItem from="1625167261158" duration="5942000" />
+      <workItem from="1625194760166" duration="680000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -329,7 +338,28 @@
       <option name="project" value="LOCAL" />
       <updated>1624965559316</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="autograd for basic operators">
+      <created>1624986275636</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986275636</updated>
+    </task>
+    <task id="LOCAL-00016" summary="autograd for basic operators">
+      <created>1624986281216</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986281216</updated>
+    </task>
+    <task id="LOCAL-00017" summary="autograd for basic operators">
+      <created>1624986306268</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986306268</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +384,8 @@
     <MESSAGE value="update README.md add bias" />
     <MESSAGE value="initial for numPytorch" />
     <MESSAGE value="autograd prototype (support add)" />
-    <option name="LAST_COMMIT_MESSAGE" value="autograd prototype (support add)" />
+    <MESSAGE value="autograd for basic operators" />
+    <option name="LAST_COMMIT_MESSAGE" value="autograd for basic operators" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

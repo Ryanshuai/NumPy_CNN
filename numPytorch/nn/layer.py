@@ -5,11 +5,5 @@ class Layer:
     def __call__(self, input):
         return self.forward(input)
 
-    def forward(self, input):
-        raise NotImplementedError
-
-    def backward(self, input):
-        raise NotImplementedError
-
-    def optimize(self):
+    def forward(self, *args):
         raise NotImplementedError

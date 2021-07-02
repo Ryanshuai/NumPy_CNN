@@ -38,11 +38,11 @@ class conv2d():
         out = out.transpose(3, 0, 1, 2)  # shape=(BS,out_D,out_H,out_W)
         return out
 
-    def back_propagate(self, dout):
-        db = np.sum(dout, axis=(0, 2, 3))
+    def back_propagate(self, gradient):
+        db = np.sum(gradient, axis=(0, 2, 3))
         self.db = db.reshape(self.out_D, 1)  # shape=(out_D,1)
 
-        dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(self.out_D,
+        dout_reshaped = gradient.transpose(1, 2, 3, 0).reshape(self.out_D,
                                                            -1)  # shape=(BS,out_D,out_H,out_W)->(out_D,out_H*out_W*BS)
         self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # shape=(out_D,f_H*f_W*in_D)
 
@@ -93,7 +93,7 @@ class max_pooling():
         cord_2 = np.tile(np.arange(self.out_H * self.out_W * self.BS), self.in_D)
 
         self.iomat = np.zeros(shape=(
-        self.in_D, self.f_H * self.f_W, self.out_H * self.out_W * self.BS))  # shape=(in_D,f_H*f_W,out_H*out_W*BS)
+            self.in_D, self.f_H * self.f_W, self.out_H * self.out_W * self.BS))  # shape=(in_D,f_H*f_W,out_H*out_W*BS)
         self.iomat[cord_0, cord_1, cord_2] = 1
 
         out = np.max(X_col_channel * self.iomat, axis=1)  # shape=(in_D,out_H*out_W*BS)
@@ -116,9 +116,7 @@ class max_pooling():
 
 class full_connect():
     def __init__(self, input_len, output_len):
-        self.input_len, self.output_len = input_len, output_len
-        self.W = np.sqrt(2. / (self.input_len)) * np.random.randn(self.input_len,
-                                                                  self.output_len)  # shape=(输入长度，输出长度) 注意广播机制
+        self.W = np.sqrt(2. / input_len) * np.random.randn(input_len, output_len)  # shape=(输入长度，输出长度) 注意广播机制
         self.b = np.zeros([1, output_len])  # shape=(1，输出长度) 注意广播机制
 
     def forward_propagate(self, input):
@@ -127,8 +125,8 @@ class full_connect():
         return output
 
     def back_propagate(self, dout):  # dout_shape=(BS,output_len)
-        dout_row = dout.reshape((-1, 1, self.output_len))
-        input_col = self.input.reshape((-1, self.input_len, 1))
+        dout_row = dout.reshape((-1, 1, self.W.shape[0]))
+        input_col = self.input.reshape((-1, self.W.shape[1], 1))
         BS_dW = dout_row * input_col
         self.dW = np.sum(BS_dW, axis=0)
 

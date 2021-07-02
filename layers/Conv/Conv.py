@@ -1,6 +1,5 @@
 import numpy as np
-from .ImageColumn import im2col
-from .ImageColumn import col2im
+from .ImageColumn import ImageColumn
 import math
 
 
@@ -10,6 +9,7 @@ class Conv2d():
         self.BS, self.in_C, self.in_H, self.in_W = input_shape
         self.f_H, self.f_W, in_C_, self.out_C = filter_shape
         self.stride_H, self.stride_W = strides
+        self.image_column = ImageColumn(input_shape, filter_shape, strides, pad=(0, 0, 0, 0))
         assert self.in_C == in_C_
 
         if padding == 'VALID':
@@ -31,22 +31,20 @@ class Conv2d():
         self.output_shape = [self.BS, self.out_C, self.out_H, self.out_W]
 
     def forward_propagate(self, X):
-        self.X_col = im2col(X, [self.f_H, self.f_W], pad=[self.pad_H, self.pad_W],
-                            stride=[self.stride_H, self.stride_W])  # (f_H*f_W*in_C,out_H*out_W*BS)
+        self.X_col = self.image_column.im2col(X)  # (f_H*f_W*in_C,out_H*out_W*BS)
         out = np.matmul(self.W_col, self.X_col) + self.b  # (out_C,out_H*out_W*BS)
         out = out.reshape(self.out_C, self.out_H, self.out_W, self.BS)  # (out_C,out_H*out_W*BS)->(out_C,out_H,out_W,BS)
         out = out.transpose(3, 0, 1, 2)  # (BS,out_C,out_H,out_W)
         return out
 
-    def back_propagate(self, dout):
-        db = np.sum(dout, axis=(0, 2, 3))
+    def back_propagate(self, gradient):
+        db = np.sum(gradient, axis=(0, 2, 3))
         self.db = db.reshape(self.out_C, 1)  # (out_C,1)
-        dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(self.out_C,
-                                                           -1)  # (BS,out_C,out_H,out_W)->(out_C,out_H*out_W*BS)
+        dout_reshaped = gradient.transpose(1, 2, 3, 0).reshape(self.out_C,
+                                                               -1)  # (BS,out_C,out_H,out_W)->(out_C,out_H*out_W*BS)
         self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_C,f_H*f_W*in_C)
         din_col = np.matmul(self.W_col.T, dout_reshaped)  # (f_H*f_W*in_C,out_H*out_W*BS)
-        din = col2im(din_col, self.input_shape, [self.f_H, self.f_W], [self.stride_H, self.stride_W],
-                     [self.pad_H, self.pad_W])
+        din = self.image_column.col2im(din_col)
         return din
 
     def optimize(self, lr, type='SGD'):

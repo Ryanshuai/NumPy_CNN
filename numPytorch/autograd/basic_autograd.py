@@ -83,23 +83,3 @@ class PowBackward:
 
     def __call__(self, gradient):
         self.next_functions[0](gradient * self.power * self.tensors[0].data ** (self.power - 1))
-
-
-class nnConvBackward:
-    def __init__(self, func1, func2):
-        self.next_functions = (func1, func2)
-
-    def __call__(self, gradient):
-        for func in self.next_functions:
-            func(gradient)
-
-    # def back_propagate(self, dout):
-    #     db = np.sum(dout, axis=(0, 2, 3))
-    #     self.db = db.reshape(self.out_C, 1)  # (out_C,1)
-    #     dout_reshaped = dout.transpose(1, 2, 3, 0).reshape(self.out_C,
-    #                                                        -1)  # (BS,out_C,out_H,out_W)->(out_C,out_H*out_W*BS)
-    #     self.dW_col = np.matmul(dout_reshaped, self.X_col.T)  # (out_C,f_H*f_W*in_C)
-    #     din_col = np.matmul(self.W_col.T, dout_reshaped)  # (f_H*f_W*in_C,out_H*out_W*BS)
-    #     din = col2im(din_col, self.input_shape, [self.f_H, self.f_W], [self.stride_H, self.stride_W],
-    #                  [self.pad_H, self.pad_W])
-    #     return din
