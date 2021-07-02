@@ -1,4 +1,5 @@
-import layers as ly
+from numPytorch.nn import old_layers_reserved as ly
+
 try:
     import cPickle as pickle
 except ImportError:

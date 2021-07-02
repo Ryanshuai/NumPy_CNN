@@ -1,6 +1,6 @@
 import numpy as np
-from im2col import im2col
-from im2col import col2im
+from numPytorch.nn.conv.im2col_old_version_reserved import im2col
+from numPytorch.nn.conv.im2col_old_version_reserved import col2im
 import math
 
 

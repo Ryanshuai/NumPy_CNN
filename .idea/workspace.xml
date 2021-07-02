@@ -1,22 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd for basic operators">
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/flatter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/module.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/relu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/numpytorch_mnist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytorch_mnist.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp_test.py" afterDir="false" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide2.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide3.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide4.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide5.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide6.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/CNN/Slide7.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/Conv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/ImageColumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Conv/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/Normalization.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/Normalization/Slide1.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/Normalization/Slide2.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/Normalization/Slide3.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/Normalization/Slide4.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README/layers/Normalization/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/conv/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/t10k-images-idx3-ubyte.gz" beforeDir="false" afterPath="$PROJECT_DIR$/data/MNIST/raw/t10k-images-idx3-ubyte.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/t10k-labels-idx1-ubyte.gz" beforeDir="false" afterPath="$PROJECT_DIR$/data/MNIST/raw/t10k-labels-idx1-ubyte.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train-images-idx3-ubyte.gz" beforeDir="false" afterPath="$PROJECT_DIR$/data/MNIST/raw/train-images-idx3-ubyte.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train-labels-idx1-ubyte.gz" beforeDir="false" afterPath="$PROJECT_DIR$/data/MNIST/raw/train-labels-idx1-ubyte.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/layer_autograd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/autograd/loss_autograd.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/autograd/loss_autograd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backward_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/backward_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/c2_p2_f2_dropout_cross_entropy_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/c2_p2_f2_dropout_cross_entropy_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conv2_fc2_cross_entropy_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/conv2_fc2_cross_entropy_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conv2_fc2_dropout_cross_entropy_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/conv2_fc2_dropout_cross_entropy_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/t10k-images-idx3-ubyte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/t10k-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/t10k-labels-idx1-ubyte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/t10k-labels-idx1-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/train-images-idx3-ubyte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/train-images-idx3-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/train-labels-idx1-ubyte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MNIST/raw/train-labels-idx1-ubyte.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/im2col.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/conv/im2col_old_version_reserved.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_input_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/image_input_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/old_layers_reserved.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide4.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide5.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide6.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/CNN/Slide7.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/Conv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/ImageColumn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Conv/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/Normalization.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/Normalization/Slide1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/Normalization/Slide2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/Normalization/Slide3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/Normalization/Slide4.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layers/Normalization/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numpytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/pytorch_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_image/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_net.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_net.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +126,9 @@
       <recent name="D:\github_project\NumPy_CNN\NumPytorch\nn\conv" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\nn" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\nn\conv" />
+      <recent name="D:\github_project\NumPy_CNN\test_network" />
       <recent name="D:\github_project\NumPy_CNN\data\MNIST\raw" />
       <recent name="D:\github_project\NumPy_CNN\numPytorch\autograd" />
     </key>
@@ -93,7 +147,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backward_test.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\test_network\backward_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -115,7 +169,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pytorch_mnist.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\test_network\pytorch_mnist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -242,7 +296,8 @@
       <workItem from="1624986615440" duration="2764000" />
       <workItem from="1625024981847" duration="12000" />
       <workItem from="1625167261158" duration="5942000" />
-      <workItem from="1625194760166" duration="15612000" />
+      <workItem from="1625194760166" duration="16228000" />
+      <workItem from="1625213507624" duration="831000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>

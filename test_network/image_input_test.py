@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import os
-from c2_p2_f2_dropout_cross_entropy_net import MODEL
+from test_network.c2_p2_f2_dropout_cross_entropy_net import MODEL
 
 
 model = MODEL()
