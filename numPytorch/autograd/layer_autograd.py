@@ -42,13 +42,26 @@ class nnSigmoidBackward:
         self.next_functions[0](gradient * self.res_tensor * (1 - self.res_tensor))
 
 
-class nnReluBackward:
-    def __init__(self, tensor, res_tensor):
-        self.res_tensor = res_tensor
-        self.next_functions = (tensor.backward,)
+class NNReluBackward:
+    def __init__(self, relu_layer):
+        self.relu_layer = relu_layer
+        self.next_functions = (relu_layer.input.backward,)
 
     def __call__(self, gradient):
-        self.next_functions[0](gradient * np.maximum(np.sign(self.res_tensor), 0))
+        self.gradients = (gradient @ np.maximum(np.sign(self.relu_layer.output), 0),)
+        for func, grad in zip(self.next_functions, self.gradients):
+            func(grad)
+
+
+class NNFlatterBackward:
+    def __init__(self, flatter):
+        self.flatter = flatter
+        self.next_functions = (flatter.input.backward,)
+
+    def __call__(self, gradient):  # shape=(BS,D*H*W)
+        self.gradients = (gradient.reshape((self.flatter.N, self.flatter.C, self.flatter.H, self.flatter.W)),)
+        for func, grad in zip(self.next_functions, self.gradients):
+            func(grad)
 
 
 class nnTanhBackward:
