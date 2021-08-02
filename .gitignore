@@ -1,4 +1,7 @@
-
+.idea
+*.xml
+*.iml
+*.pyc
 model/20000_net1.txt
 model/10000_net1.txt
 model/50000_net1.txt

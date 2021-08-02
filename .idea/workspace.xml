@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="new">
-      <change afterPath="$PROJECT_DIR$/layers/Conv/ImageColumn.py" afterDir="false" />
+    <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd for basic operators">
+      <change afterPath="$PROJECT_DIR$/numPytorch/nn/parameter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/Conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/layers/Conv/Conv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layers/Conv/im2col.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/flatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/flatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/linear.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/backward_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/backward_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_network/pytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/pytorch_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +50,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/layers/Normalization" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/numPytorch/nn" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,34 +66,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\github_project\numpy_cnn\layers\Normalization" />
-      <recent name="D:\github_project\numpy_cnn\layers\Conv" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\nn" />
+      <recent name="D:\github_project\NumPy_CNN" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\autograd" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\Tensor" />
+      <recent name="D:\github_project\NumPy_CNN\NumPytorch\nn\conv" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\nn" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\nn\conv" />
+      <recent name="D:\github_project\NumPy_CNN\test_network" />
+      <recent name="D:\github_project\NumPy_CNN\data\MNIST\raw" />
+      <recent name="D:\github_project\NumPy_CNN\numPytorch\autograd" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ImageColumn">
-    <configuration name="ImageColumn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="numpy_cnn" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/layers/Conv" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\layers\Conv\ImageColumn.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="merge_sort" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.pytorch_mnist (1)">
+    <configuration name="backward_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -95,7 +94,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/merge_sort.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\test_network\backward_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -104,7 +103,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="pytorch_mnist (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="numpy_cnn" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_network" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_network/pytorch_mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytorch_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +138,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="D:\github_project\NumPy_CNN\test_network\pytorch_mnist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="temp_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +160,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,7 +169,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_net" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="tensor (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="numpy_cnn" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -156,12 +177,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numPytorch/tensor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_net.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numPytorch/tensor/tensor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,19 +192,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test2" />
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.train_net" />
-      <item itemvalue="Python.merge_sort" />
-      <item itemvalue="Python.ImageColumn" />
+      <item itemvalue="Python.backward_test" />
+      <item itemvalue="Python.tensor (1)" />
+      <item itemvalue="Python.pytorch_mnist" />
+      <item itemvalue="Python.temp_test" />
+      <item itemvalue="Python.pytorch_mnist (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ImageColumn" />
-        <item itemvalue="Python.merge_sort" />
-        <item itemvalue="Python.train_net" />
-        <item itemvalue="Python.test2" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.pytorch_mnist (1)" />
+        <item itemvalue="Python.temp_test" />
+        <item itemvalue="Python.pytorch_mnist" />
+        <item itemvalue="Python.backward_test" />
+        <item itemvalue="Python.tensor (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -215,6 +236,16 @@
       <workItem from="1604333198826" duration="176000" />
       <workItem from="1604368295974" duration="511000" />
       <workItem from="1604371067443" duration="20713000" />
+      <workItem from="1624863356412" duration="1159000" />
+      <workItem from="1624865710024" duration="2000" />
+      <workItem from="1624943209935" duration="19698000" />
+      <workItem from="1624968989994" duration="11632000" />
+      <workItem from="1624986615440" duration="2764000" />
+      <workItem from="1625024981847" duration="12000" />
+      <workItem from="1625167261158" duration="5942000" />
+      <workItem from="1625194760166" duration="16228000" />
+      <workItem from="1625213507624" duration="14132000" />
+      <workItem from="1625246988481" duration="3695000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
@@ -300,83 +331,78 @@
       <option name="project" value="LOCAL" />
       <updated>1604332873645</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="initial for numPytorch">
+      <created>1624864155537</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624864155537</updated>
+    </task>
+    <task id="LOCAL-00014" summary="autograd prototype (support add)">
+      <created>1624965559315</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1624965559316</updated>
+    </task>
+    <task id="LOCAL-00015" summary="autograd for basic operators">
+      <created>1624986275636</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986275636</updated>
+    </task>
+    <task id="LOCAL-00016" summary="autograd for basic operators">
+      <created>1624986281216</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986281216</updated>
+    </task>
+    <task id="LOCAL-00017" summary="autograd for basic operators">
+      <created>1624986306268</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1624986306268</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add CNN explaining" />
     <MESSAGE value="add Normalization explaining" />
     <MESSAGE value="update README.md" />
     <MESSAGE value="update README.md add bias" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md add bias" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1312" y="341" key="#Plugins" timestamp="1603937610466">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1312" y="341" key="#Plugins/0.0.3440.1400@0.0.3440.1400" timestamp="1603937610466" />
-    <state x="1475" y="401" key="#xdebugger.evaluate" timestamp="1604388708349">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1475" y="401" key="#xdebugger.evaluate/0.0.3440.1400@0.0.3440.1400" timestamp="1604388708349" />
-    <state x="1375" y="281" key="CommitChangelistDialog2" timestamp="1604391856787">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1375" y="281" key="CommitChangelistDialog2/0.0.3440.1400@0.0.3440.1400" timestamp="1604391856787" />
-    <state width="1484" height="466" key="DebuggerActiveHint" timestamp="1604387671540">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1484" height="466" key="DebuggerActiveHint/0.0.3440.1400@0.0.3440.1400" timestamp="1604387671540" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.bottom" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.center" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.left" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1384" height="1272" key="GridCell.Tab.0.right" timestamp="1604391704515">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1384" height="1272" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604391704515" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.bottom" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.center" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.left" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state width="1295" height="1272" key="GridCell.Tab.1.right" timestamp="1604391408176">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state width="1295" height="1272" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1604391408176" />
-    <state x="1221" y="345" key="SettingsEditor" timestamp="1603951001365">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1221" y="345" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1603951001365" />
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604332876071">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1312" y="433" key="Vcs.Push.Dialog.v2/0.0.3440.1400@0.0.3440.1400" timestamp="1604332876071" />
-    <state x="1563" y="485" key="refactoring.ChangeSignatureDialog" timestamp="1604388229415">
-      <screen x="0" y="0" width="3440" height="1400" />
-    </state>
-    <state x="1563" y="485" key="refactoring.ChangeSignatureDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1604388229415" />
+    <MESSAGE value="initial for numPytorch" />
+    <MESSAGE value="autograd prototype (support add)" />
+    <MESSAGE value="autograd for basic operators" />
+    <option name="LAST_COMMIT_MESSAGE" value="autograd for basic operators" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../Anaconda/Lib/site-packages/torch/nn/modules/module.py</url>
+          <line>1146</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -387,7 +413,14 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/NumPy_CNN$tensor.coverage" NAME="tensor Coverage Results" MODIFIED="1624971047885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/numPytorch/Tensor" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$temp_test.coverage" NAME="temp_test Coverage Results" MODIFIED="1625220707031" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$pytorch_mnist__1_.coverage" NAME="pytorch_mnist (1) Coverage Results" MODIFIED="1625247906483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_network" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$im2col.coverage" NAME="im2col Coverage Results" MODIFIED="1604391704515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$pytorch_mnist.coverage" NAME="pytorch_mnist Coverage Results" MODIFIED="1625198727575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NumPy_CNN$merge_sort.coverage" NAME="merge_sort Coverage Results" MODIFIED="1604371920126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$ImageColumn.coverage" NAME="ImageColumn Coverage Results" MODIFIED="1624953422800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/layers/Conv" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$backward_test.coverage" NAME="backward_test Coverage Results" MODIFIED="1624985454290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NumPy_CNN$tensor__1_.coverage" NAME="tensor (1) Coverage Results" MODIFIED="1624984593156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/numPytorch/tensor" />
   </component>
 </project>
