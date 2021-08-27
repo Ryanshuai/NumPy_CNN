@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2f7e126-c18b-4752-9a28-5e7307c0a710" name="Default" comment="autograd for basic operators">
-      <change afterPath="$PROJECT_DIR$/numPytorch/nn/parameter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/numPytorch/optim/optimizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/cross_entropy_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/flatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/flatter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/linear.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/linear.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/module.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/negetive_log_likelihood_loss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/nn/none_linear_layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/numPytorch/tensor/tensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_network/backward_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/backward_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/numpytorch_mnist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_network/pytorch_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_network/pytorch_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +234,7 @@
       <workItem from="1625167261158" duration="5942000" />
       <workItem from="1625194760166" duration="16228000" />
       <workItem from="1625213507624" duration="14132000" />
-      <workItem from="1625246988481" duration="3695000" />
+      <workItem from="1625246988481" duration="5608000" />
     </task>
     <task id="LOCAL-00001" summary="add CNN explaining">
       <created>1603951673280</created>
